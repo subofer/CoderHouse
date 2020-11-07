@@ -1,0 +1,190 @@
+//*Body*/
+	$Body--Ancho:80vw;
+	$Body--Ancho__max: 800px;
+	$Body__shadow:0px 0px 20px 1px #888888;
+//*head*/
+	$Logo--Fuente__Color:#c2bb5f;
+//*nav*/
+	$Nav__alto: 40px;
+	$Nav--Fondo__color: #c2bb5f;
+	$Nav--Li__activo:linear-gradient(90deg, rgba(194,187,95,1) 0%,rgba(140,140,70,.8) 50%, rgba(194,187,95,1) 100%);
+//*footer*/
+	$Footer--Fondo__color: #848151;
+	$Footer--Alto:.75; //*relacion del alto con respecto al Nav*/
+//*Galeria*/
+	$Galeria--Fotos__Cantidad: 5;
+
+
+@keyframes aparece {  
+	0% { opacity: 0;}
+	100% { opacity: 1;}
+}
+
+html{
+	background-color: #F1F1ED;
+	font-family: 'Secular One', sans-serif;
+}
+
+
+body{
+	max-width: $Body--Ancho__max; 
+	width: $Body--Ancho;
+	
+	/*centra el body en la pantalla*/
+	margin: 15px auto; 
+	/*sombra para el body flotante*/
+	box-shadow: $Body__shadow;
+
+	display: grid;
+	grid-template-areas:
+				"header header header header"
+				"nav nav nav nav"
+				"main main main main"
+				"footer footer footer footer"
+				;
+
+	
+	/*esconde el elevador en los navegadores*/
+	-ms-overflow-style: none;  /* IE */
+	scrollbar-width: none;  /* Firefox */
+
+	&::-webkit-scrollbar {
+  					display: none; /* Esconder elevador en Chrome */
+	}
+}
+
+
+header {
+	grid-area: header;
+	padding-top: 15px;
+	text-align: center;
+	background: white;
+	
+	nav {
+			grid-area: nav;
+			height: $Nav__alto;
+			background-color: $Nav--Fondo__color;
+
+			ul {
+					display: flex;
+					flex-flow: row nowrap;
+					justify-content: space-around;
+					margin:0px;
+					padding-inline-start: 0px;
+
+					li {
+							line-height: $Nav__alto;
+							background-color: $Nav--Fondo__color;
+							list-style: none;	
+							flex-grow: 2;
+							flex-shrink: 2;
+	
+							a {
+								text-decoration: none;
+								color: white;
+								font-size: clamp(13px, 1.8vw, 22px);
+								display: block;
+								width: 100%;
+								height: 100%;
+							
+								&:hover, &[href="#"] {
+													  background: $Nav--Li__activo;
+													}
+								}
+						}
+				}
+		}
+}
+
+
+main{
+	grid-area: main;
+	display: grid;
+	padding: 0 5%;
+	&>h2{
+		display: inline;
+		color: #70560D;
+		text-align: center;
+	}
+}
+
+
+footer{
+	grid-area: footer;
+	background: $Footer--Fondo__color;
+	
+	display: flex;
+	text-align: center;
+	
+	line-height: ($Nav__alto * $Footer--Alto);
+	margin-top: 10px;
+	font-size: clamp(13px, 1.2vw, 15px);
+	padding: 0 5%;
+}
+
+
+
+.logo-pipi{
+	position: relative;
+	& img {
+			max-width: 80%;
+		    animation-name: aparece;
+  			animation-duration: 2s;
+ 	}
+ }
+
+
+.titulo-logo{ 
+	color:$Logo--Fuente__Color;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: 'Secular One', sans-serif;
+	font-size: clamp(13px, 3.85vw, 38px);
+	
+	animation-name: aparece;
+	animation-duration: 2s;
+}
+
+
+.galeriaGrid{
+	display: grid;
+	grid-template-areas:
+	"f1 f2 f3"
+	"f4 f2 f5";
+
+	justify-content: center;
+
+	align-items: stretch;
+	align-content: center;
+
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.galeriaItem{
+	filter: blur(1.5px) grayscale(70%);
+	width: 80%;
+	padding: 5px 0px 0px 20px;
+  	
+  	&:hover{
+		filter: blur(0px) grayscale(0%);
+		transform: scale(1.05);
+		transition: 0.5s;
+		z-index: 9999;
+	}
+}
+
+.TituloMain{
+	text-align: center;
+
+}
+
+
+@for $i from 1 through $Galeria--Fotos__Cantidad {
+  .f#{$i}{
+    grid-area: f#{$i};
+  }
+}

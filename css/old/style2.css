@@ -1,0 +1,245 @@
+:root {
+--ancho-body:800px;
+};
+html{
+	background-color: white;
+}
+body{
+	max-width: var(--ancho-body); 
+	width: 80vw; 
+	margin: 15px auto; 
+
+	/*margin-bottom: 15px; margin-top: 15px;*/
+
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 20px 1px #888888;
+	/*justify-content: space-evenly;*/
+
+
+	-ms-overflow-style: none;  /* Esconder elevador en IE */
+  	scrollbar-width: none;  /* Esconder elevador en Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Esconder elevador en Chrome */
+}
+
+header {
+   position: sticky;
+   top:0px;
+
+   text-align: center;
+   background: white;
+}
+
+
+.logo-pipi{
+	position: relative;
+  	text-align: center;
+}
+
+.titulo-logo{ 
+	color:#c2bb5f;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  	transform: translate(-50%, -50%);
+	font-size: clamp(13px, 3.85vw, 38px);
+	font-family: 'Secular One', sans-serif;
+}
+
+.Whatssap{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	vertical-align: center;
+	text-align: center;
+
+
+}
+.LogoWhat{
+	height: 20px;
+	width: auto;
+
+
+}
+
+h2{
+	color:green;
+}
+
+nav{
+	margin: 0 -10px; /*ir de lado a lado, ignorando el pading del body */
+	line-height: 50px;
+	background: #c2bb5f;
+	align-items: stretch;
+
+}
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+
+ul, li{
+	padding: 0px;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: stretch;
+	margin: -1px;
+
+
+}
+
+ul, li > a{
+align-items: stretch;
+	text-decoration: none;
+}
+
+nav a{
+	text-decoration: none;
+	color: white;
+	font-size: clamp(10px, 2.5vw, 20px);
+}
+
+nav li:hover{
+align-items: stretch;
+background: linear-gradient(90deg, rgba(194,187,95,1) 0%, rgba(147,141,72,1) 50%, rgba(194,187,95,1) 100%);
+
+}
+
+
+footer{
+	display: flex;
+	justify-content: center;
+	background-color: #c2bb5f;
+    text-align: center;
+	width: 50%;
+	margin: -10 -10px;
+
+}
+footer ul{
+	line-height: 30px;
+}
+
+footer a{
+	text-decoration: none;
+}
+
+/*table{
+	position: relative;
+}
+
+table, td, th, tr{
+	border: 1px solid black;
+	text-align: center;
+}
+
+table tr td:first-child {
+	text-align: left;
+}*/
+
+.nosotros{
+	color: red;
+}
+
+/*esta clase acompaña a la etiqueta h2, solo para cumplir con el desafio */
+.titulo_ {            
+	color:green;
+
+}
+.logo-pipi img{
+	max-width: 80%;
+}
+.LogoWhat{
+	height: 30px;
+	float: left;
+}
+
+
+/*
+.GaleriaFotos{
+	display: flex;
+	flex-flow: row wrap;
+
+	padding: 0 20px 0 30px;
+	align-content: space-around;
+	align-items: center;
+	justify-content:  space-evenly;
+	
+ 
+}
+
+.GaleriaFotos img {
+    vertical-align: middle;
+	padding: 10px auto;
+    width: 30%;
+} */
+
+
+#productos{
+	background-color: grey;
+}
+
+#recetas{
+	background-color: darkgrey;
+}
+
+.padreFlex{
+	display: flex;
+	justify-content: center;
+	margin-left: -20px;
+
+}
+
+.hijoFlex{
+	padding: 0px;
+	height: 200px;
+	width: 200px;
+
+}
+
+.negro{background-color: black;}
+.rojo{background-color: red;}
+.azul{background-color: blue;}
+
+
+.galeriaGrid{
+	display: grid;
+	grid-template-areas:
+	"f1 f2 f3"
+	"f4 f2 f5";
+
+	justify-content: center;
+
+	align-items: stretch;
+	align-content: center;
+
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.galeriaItem{
+  	padding: 5px;
+  	width: 80%;
+  }
+
+
+.f1{grid-area: f1;}
+.f2{grid-area: f2;}
+.f3{grid-area: f3;}
+.f4{grid-area: f4;}
+.f5{grid-area: f5;}
+
+.galeriaItem:hover{
+
+	z-index: -1;
+
+}

@@ -1,0 +1,49 @@
+:root {
+
+/*paleta de colores*/
+
+
+/*tamaños y ajustes*/
+--AnchoBody: 80vw;
+--AnchoMaxBody:800px;
+
+};
+
+
+
+
+body{
+	max-width: var(--AnchoMaxBody); 
+	width: var(--AnchoBody);
+
+	display: grid;
+	
+	grid-template-areas:
+	"header"
+	"section"	 
+	"footer"
+	 ;
+
+	border-radius: 5px;
+	box-shadow: 0px 0px 20px 1px #888888;
+	/*justify-content: space-evenly;*/
+
+
+	-ms-overflow-style: none;  /* Esconder elevador en IE */
+  	scrollbar-width: none;  /* Esconder elevador en Firefox */
+}
+
+
+
+	display: grid;
+	grid-template-areas:
+	"f1 f2 f3"
+	"f4 f2 f5";
+
+	justify-content: center;
+
+	align-items: stretch;
+	align-content: center;
+
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;

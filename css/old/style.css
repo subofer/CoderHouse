@@ -1,0 +1,249 @@
+/*Hice este nuevo CSS donde aplico grids al proyecto en general*/
+
+:root {
+	/*Variables de ajuste*/
+		/*body*/
+		--AnchoBody: 80vw;
+		--AnchoMaxBody:800px;
+		
+		/*head*/
+		--ColorFuenteLogo: #c2bb5f;
+		
+		/*nav*/
+		--AltoNav: 40;
+		--ColorFondoNav: #c2bb5f;
+		
+		/*footer*/
+		--ColorFondoFooter: #848151;
+		--AltoFooter:.75; /*relacion del alto con respecto al Nav*/
+}
+
+html{
+	background-color: #F1F1ED;
+	font-family: 'Secular One', sans-serif;
+}
+
+body{
+	max-width: var(--AnchoMaxBody); 
+	width: var(--AnchoBody);
+	
+	/*centra el body en la pantalla*/
+	margin: 15px auto; 
+	/*sombra para el body flotante*/
+	box-shadow: 0px 0px 20px 1px #888888;
+
+	display: grid;
+	grid-template-areas:
+				"header header header header"
+				"nav nav nav nav"
+				"main main main main"
+				"footer footer footer footer"
+				;
+
+	
+	/*esconde el elevador en los navegadores*/
+	-ms-overflow-style: none;  /* IE */
+	scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Esconder elevador en Chrome */
+}
+
+header {
+	grid-area: header;
+	padding-top: 15px;
+	text-align: center;
+	background: white;
+}
+
+header nav{
+	grid-area: nav;
+	height: calc(var(--AltoNav)*1px);
+	background-color: var(--ColorFondoNav);
+}
+
+header nav ul {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	margin:0px;
+	padding-inline-start: 0px;
+
+}
+header nav ul li {
+
+	line-height: calc(var(--AltoNav)*1px);
+	background-color: var(--ColorFondoNav);
+	list-style: none;	
+
+	flex-grow: 2;
+	flex-shrink: 2;
+}
+
+
+header nav ul li a {
+	text-decoration: none;
+	color: white;
+	font-size: clamp(13px, 1.8vw, 22px);
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+header nav ul li a:hover,a[href="#"] {
+	background: linear-gradient(90deg, rgba(194,187,95,1) 0%, rgba(140,140,70,.8) 50%, rgba(194,187,95,1) 100%);
+}
+
+::selection{
+	color: red;
+}
+
+
+
+main{
+	grid-area: main;
+	display: grid;
+	padding: 0 5%;
+
+}
+
+main>h2{
+	display: inline;
+	color: #70560D;
+	text-align: center;
+}
+
+footer{
+	grid-area: footer;
+	background: var(--ColorFondoFooter);
+	
+	display: flex;
+	text-align: center;
+	
+	line-height: calc(var(--AltoNav)*var(--AltoFooter)*1px);
+	margin-top: 10px;
+	font-size: clamp(13px, 1.2vw, 15px);
+	padding: 0 5%;
+}
+
+/*compo del logo y el texto del mismo*/
+.logo-pipi{
+	position: relative;
+
+}
+.logo-pipi img {
+	max-width: 80%;
+
+  animation-name: aparece;
+  animation-duration: 2s;
+  
+}
+.titulo-logo{ 
+	color:var(--ColorFuenteLogo);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: 'Secular One', sans-serif;
+	font-size: clamp(13px, 3.85vw, 38px);
+	
+	animation-name: aparece;
+	animation-duration: 2s;
+}
+/*--hasta aca--*/
+
+
+
+.galeriaGrid{
+	display: grid;
+	grid-template-areas:
+	"f1 f2 f3"
+	"f4 f2 f5";
+
+	justify-content: center;
+
+	align-items: stretch;
+	align-content: center;
+
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.galeriaItem{
+	filter: blur(1.5px) grayscale(70%);
+	width: 80%;
+	padding: 5px 0px 0px 20px;
+  }
+
+.galeriaItem:hover{
+	filter: blur(0px) grayscale(0%);
+	transform: scale(1.05);
+	transition: 0.5s;
+
+	z-index: 9999;
+}
+
+.TituloMain{
+	text-align: center;
+
+}
+
+
+.f1{grid-area: f1;}
+.f2{grid-area: f2;}
+.f3{grid-area: f3;}
+.f4{grid-area: f4;}
+.f5{grid-area: f5;}
+
+
+@keyframes aparece {  /*Pongo la animación para cumplir el desafio, pero no me gustan =P */
+
+	0% { opacity: 0;}
+	100% { opacity: 1;}
+
+}
+
+
+
+
+
+
+
+/*
+@each $boton,$color in $botones{
+	.btn--#{$boton}{
+		@extend .botones;
+		background-color:$color;
+	}
+}
+
+
+.nueva { 
+@extend nav;
+		background-color:#FFF;
+
+		$botones:(
+	cancel:red,
+	aceptar:black,
+	cancelar:yellow);
+
+.botones{
+	color:red;
+}
+}
+
+
+*//*
+section{
+	@if $fondo == true {
+		hace algo
+	} @else if {
+
+		} @else{}
+
+
+}
+
+*/
