@@ -11,6 +11,7 @@ html {
 body {
   max-width: 800px;
   width: 80vw;
+  /*nada*/
   /*centra el body en la pantalla*/
   margin: 15px auto;
   /*sombra para el body flotante*/
@@ -57,14 +58,15 @@ header {
           header nav ul li a:hover, header nav ul li a[href="#"] {
             background: linear-gradient(90deg, #c2bb5f 0%, rgba(140, 140, 70, 0.8) 50%, #c2bb5f 100%); }
 
-main {
+.subtitulo, main > h2, .main > h2 {
+  display: inline;
+  color: #70560D;
+  text-align: center; }
+
+main, .main {
   grid-area: main;
   display: grid;
   padding: 0 5%; }
-  main > h2 {
-    display: inline;
-    color: #70560D;
-    text-align: center; }
 
 footer {
   grid-area: footer;

@@ -97,16 +97,26 @@ header {
 }
 
 
-main{
+
+.subtitulo{
+	display: inline;
+	color: #70560D;
+	text-align: center;
+}
+
+
+main,.main{
 	grid-area: main;
 	display: grid;
 	padding: 0 5%;
+	
 	&>h2{
-		display: inline;
-		color: #70560D;
-		text-align: center;
-	}
+			@extend .subtitulo;
+		}
 }
+
+
+
 
 
 footer{
