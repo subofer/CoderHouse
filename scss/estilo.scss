@@ -80,7 +80,7 @@ header {
 							flex-shrink: 2;
 	
 							a {
-								text-decoration: none;
+								text-decoration: none !important;
 								color: white;
 								font-size: clamp(13px, 1.8vw, 22px);
 								display: block;
@@ -88,8 +88,9 @@ header {
 								height: 100%;
 							
 								&:hover, &[href="#"] {
+													  color: white !important;
 													  background: $Nav--Li__activo;
-													}
+													 }
 								}
 						}
 				}
@@ -99,9 +100,7 @@ header {
 
 
 .subtitulo{
-	display: inline;
 	color: #70560D;
-	text-align: center;
 }
 
 
@@ -109,8 +108,10 @@ main,.main{
 	grid-area: main;
 	display: grid;
 	padding: 0 5%;
+	margin:24px;
 	
 	&>h2{
+			text-align: left;
 			@extend .subtitulo;
 		}
 }
@@ -192,6 +193,9 @@ footer{
 
 }
 
+.separador{
+	margin-top: 24px;
+}
 
 @for $i from 1 through $Galeria--Fotos__Cantidad {
   .f#{$i}{
