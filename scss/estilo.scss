@@ -67,7 +67,7 @@ header {
 							a {
 								text-decoration: none !important;
 								color: white;
-								font-size: clamp(13px, 1.8vw, 22px);
+								font-size: clamp(10px, 2.5vw, 22px);
 								display: block;
 								width: 100%;
 								height: 100%;
@@ -95,9 +95,10 @@ main,.main{
 	padding: 0 5%;
 	margin:24px;
 	
-	&>h2{
-			text-align: left;
+	&>h1{
 			@extend .subtitulo;
+			font-size:  clamp(13px, 5vw, 30px);
+			text-align: center;
 		}
 }
 
