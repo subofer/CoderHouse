@@ -123,6 +123,9 @@ footer {
 .separador {
   margin-top: 24px; }
 
+.card {
+  width: 18rem; }
+
 .f1 {
   grid-area: f1; }
 

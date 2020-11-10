@@ -47,7 +47,6 @@ body{
 	/*esconde el elevador en los navegadores*/
 	-ms-overflow-style: none;  /* IE */
 	scrollbar-width: none;  /* Firefox */
-
 	&::-webkit-scrollbar {
   					display: none; /* Esconder elevador en Chrome */
 	}
@@ -195,6 +194,10 @@ footer{
 
 .separador{
 	margin-top: 24px;
+}
+
+.card{
+	 width: 18rem;
 }
 
 @for $i from 1 through $Galeria--Fotos__Cantidad {
