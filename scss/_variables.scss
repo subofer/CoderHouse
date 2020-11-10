@@ -1,0 +1,17 @@
+//*Body*/
+	$Body--Ancho:80vw;
+	$Body--Ancho__max: 800px;
+	$Body__shadow:0px 0px 20px 1px #888888;
+//*head*/
+	$Logo--Fuente__Color:#c2bb5f;
+//*nav*/
+	$Nav__alto: 40px;
+	$Nav--Fondo__color: #c2bb5f;
+	$Nav--Li__activo:linear-gradient(90deg, rgba(194,187,95,1) 0%,rgba(140,140,70,.8) 50%, rgba(194,187,95,1) 100%);
+//*footer*/
+	$Footer--Fondo__color: #848151;
+	$Footer--Alto:.75; //*relacion del alto con respecto al Nav*/
+//*Galeria*/
+	$Galeria--Fotos__Cantidad: 5;
+//*Ancho Cards*/
+	$Recetas--Cards__Ancho: 20rem;

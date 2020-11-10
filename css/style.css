@@ -6,7 +6,7 @@
 
 html {
   background-color: #F1F1ED;
-  font-family: 'Secular One', sans-serif; }
+  font-family: 'Secular One', sans-serif !important; }
 
 body {
   max-width: 800px;
@@ -124,7 +124,7 @@ footer {
   margin-top: 24px; }
 
 .card {
-  width: 18rem; }
+  width: 20rem; }
 
 .f1 {
   grid-area: f1; }
