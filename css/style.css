@@ -76,6 +76,7 @@ footer {
   background: #848151;
   display: flex;
   text-align: center;
+  color: white;
   line-height: 30px;
   margin-top: 10px;
   font-size: clamp(13px, 1.2vw, 15px);
