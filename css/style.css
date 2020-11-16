@@ -9,14 +9,6 @@ html {
   font-family: 'Secular One', sans-serif !important; }
 
 body {
-  /*max-width: $Body--Ancho__max; 
-	width: $Body--Ancho;
-	min-width: 99%;
-	/*nada*/
-  /*centra el body en la pantalla*/
-  /*margin: 15px auto; */
-  /*sombra para el body flotante*/
-  box-shadow: 0px 0px 20px 1px #888888;
   overflow: none;
   display: grid;
   grid-template-areas: "header header header header" "nav nav nav nav" "main main main main" "footer footer footer footer";

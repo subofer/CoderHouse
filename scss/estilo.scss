@@ -13,14 +13,6 @@ html{
 
 
 body{
-	/*max-width: $Body--Ancho__max; 
-	width: $Body--Ancho;
-	min-width: 99%;
-	/*nada*/
-	/*centra el body en la pantalla*/
-	/*margin: 15px auto; */
-	/*sombra para el body flotante*/
-	box-shadow: $Body__shadow;
 	overflow: none;
 	display: grid;
 	grid-template-areas:
@@ -197,7 +189,6 @@ footer{
 }
 
 .card{
-	 
   	 margin-top:10px;
 }
 
