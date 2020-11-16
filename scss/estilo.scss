@@ -91,7 +91,6 @@ main,.main{
 	grid-area: main;
 	display: grid;
 	padding-top: 20px;
-	/*padding: 0 5%;*/
 	margin:24px;
 	width:100%;
 
@@ -105,9 +104,6 @@ main,.main{
 			text-align: center;
 		}
 }
-
-
-
 
 
 footer{
@@ -140,11 +136,11 @@ footer{
 .titulo-logo{ 
 	color:$Logo--Fuente__Color;
 	position: absolute;
-	top: 50%;
+	top: 51.5%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	font-family: 'Secular One', sans-serif;
-	font-size: clamp(13px, 3.85vw, 38px);
+	font-size: clamp(13px, 5vw, 50px);
 	
 	animation-name: aparece;
 	animation-duration: 2s;
