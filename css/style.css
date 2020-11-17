@@ -7,7 +7,7 @@
 
 html {
   background-color: #F1F1ED;
-  font-family: 'Secular One', sans-serif !important; }
+  font-family: 'Secular One', sans-serif; }
 
 body {
   overflow: none;
@@ -48,22 +48,13 @@ header {
         header nav ul li a {
           text-decoration: none !important;
           color: white;
-          font-size: clamp(10px, 2.5vw, 22px);
-          display: block;
-          width: 100%;
-          height: 100%; }
+          font-size: clamp(10px, 3vw, 22px);
+          display: block; }
           header nav ul li a:hover, header nav ul li a[href="#"] {
             color: white !important;
             background: linear-gradient(90deg, #c2bb5f 0%, rgba(140, 140, 70, 0.8) 50%, #c2bb5f 100%); }
 
-.subtitulo, main > h1, .main > h1 {
-  color: #70560D; }
-
-.centrado {
-  margin: 0px auto;
-  justify-content: center; }
-
-main, .main {
+main {
   grid-area: main;
   display: grid;
   padding-top: 20px;
@@ -72,7 +63,8 @@ main, .main {
   max-width: 800px;
   width: 80vw;
   margin: 0px auto; }
-  main > h1, .main > h1 {
+  main > h1 {
+    color: #70560D;
     font-size: clamp(13px, 5vw, 30px);
     text-align: center; }
 
@@ -89,22 +81,19 @@ footer {
   padding: 0 5%; }
 
 .logo-pipi {
+  animation-name: aparece;
+  animation-duration: 2s;
   position: relative; }
   .logo-pipi img {
-    max-width: 80%;
-    animation-name: aparece;
-    animation-duration: 2s; }
-
-.titulo-logo {
-  color: #c2bb5f;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Lobster', cursive;
-  font-size: clamp(13px, 6.2vw, 62px);
-  animation-name: aparece;
-  animation-duration: 2s; }
+    max-width: 80%; }
+  .logo-pipi > p {
+    color: #c2bb5f;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Lobster", cursive;
+    font-size: clamp(13px, 6.2vw, 62px); }
 
 .galeriaGrid {
   display: grid;
@@ -124,15 +113,6 @@ footer {
     transform: scale(1.05);
     transition: 0.5s;
     z-index: 9999; }
-
-.TituloMain {
-  text-align: center; }
-
-.separador {
-  margin-top: 24px; }
-
-.card {
-  margin-top: 10px; }
 
 .f1 {
   grid-area: f1; }

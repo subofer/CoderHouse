@@ -1,5 +1,5 @@
 @import "variables";
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url($Logo--Fuente__Url);
 
 
 
@@ -10,7 +10,7 @@
 
 html{
 	background-color: #F1F1ED;
-	font-family: 'Secular One', sans-serif !important;
+	font-family: 'Secular One', sans-serif;
 }
 
 
@@ -28,8 +28,9 @@ body{
 	/*esconde el elevador en los navegadores*/
 	-ms-overflow-style: none;  /* IE */
 	scrollbar-width: none;  /* Firefox */
+	
 	&::-webkit-scrollbar {
-  					display: none; /* Esconder elevador en Chrome */
+  			display: none; /* Esconder elevador en Chrome */
 	}
 }
 
@@ -41,55 +42,43 @@ header {
 	background: white;
 	
 	nav {
-			grid-area: nav;
-			height: $Nav__alto;
-			background-color: $Nav--Fondo__color;
-			ul {
-					display: flex;
-					flex-flow: row nowrap;
-					justify-content: space-around;
-					margin:0px;
-					padding-inline-start: 0px;
-					max-width: $Body--Ancho__max; 
-					margin: 0px auto;
+		grid-area: nav;
+		height: $Nav__alto;
+		background-color: $Nav--Fondo__color;
+		
+		ul {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-around;
+			margin:0px;
+			padding-inline-start: 0px;
+			max-width: $Body--Ancho__max; 
+			margin: 0px auto;
 
-					li {
-							line-height: $Nav__alto;
-							background-color: $Nav--Fondo__color;
-							list-style: none;	
-							flex-grow: 2;
-							flex-shrink: 2;
-	
-							a {
-								text-decoration: none !important;
-								color: white;
-								font-size: clamp(10px, 2.5vw, 22px);
-								display: block;
-								width: 100%;
-								height: 100%;
-							
-								&:hover, &[href="#"] {
-													  color: white !important;
-													  background: $Nav--Li__activo;
-													 }
-								}
-						}
+			li {
+				line-height: $Nav__alto;
+				background-color: $Nav--Fondo__color;
+				list-style: none;	
+				flex-grow: 2;
+				flex-shrink: 2;
+
+				a {
+					text-decoration: none !important;
+					color: white;
+					font-size: clamp(10px, 3vw, 22px);
+					display: block;
+
+					&:hover, &[href="#"] {
+						  color: white !important;
+						  background: $Nav--Li__activo;
+				    	}
 				}
+			}
 		}
+	}
 }
 
-
-
-.subtitulo{
-	color: #70560D;
-}
-
-.centrado{
-	margin: 0px auto;
-	justify-content: center;
-}
-
-main,.main{
+main{
 	grid-area: main;
 	display: grid;
 	padding-top: 20px;
@@ -101,10 +90,10 @@ main,.main{
 	margin: 0px auto;
 
 	&>h1{
-			@extend .subtitulo;
-			font-size:  clamp(13px, 5vw, 30px);
-			text-align: center;
-		}
+		color: #70560D;
+		font-size:  clamp(13px, 5vw, 30px);
+		text-align: center;
+	}
 }
 
 
@@ -123,32 +112,25 @@ footer{
 	padding: 0 5%;
 }
 
-
-
 .logo-pipi{
-	position: relative;
+	animation-name: aparece;
+  	animation-duration: 2s;
+  	position: relative;
+	
 	& img {
 			max-width: 80%;
-		    animation-name: aparece;
-  			animation-duration: 2s;
+ 	}
+ 	
+ 	&>p{
+ 		color:$Logo--Fuente__Color;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-family: $Logo--Fuente__Nombre;
+		font-size: clamp(13px, 6.2vw, 62px);
  	}
  }
-
-
-.titulo-logo{ 
-	color:$Logo--Fuente__Color;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-family: 'Lobster', cursive;
-
-	font-size: clamp(13px, 6.2vw, 62px);
-	
-	animation-name: aparece;
-	animation-duration: 2s;
-}
-
 
 .galeriaGrid{
 	display: grid;
@@ -177,19 +159,6 @@ footer{
 		transition: 0.5s;
 		z-index: 9999;
 	}
-}
-
-.TituloMain{
-	text-align: center;
-
-}
-
-.separador{
-	margin-top: 24px;
-}
-
-.card{
-  	 margin-top:10px;
 }
 
 @for $i from 1 through $Galeria--Fotos__Cantidad {
