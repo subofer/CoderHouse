@@ -6,11 +6,11 @@
     opacity: 1; } }
 
 html {
-  background-color: #F1F1ED;
   font-family: 'Secular One', sans-serif; }
 
 body {
   overflow: none;
+  min-height: 100%;
   display: grid;
   grid-template-areas: "header header header header" "nav nav nav nav" "main main main main" "footer footer footer footer";
   /*esconde el elevador en los navegadores*/
@@ -76,10 +76,9 @@ footer {
   text-align: center;
   justify-content: center;
   color: white;
-  line-height: 30px;
   margin-top: 40px;
-  font-size: clamp(13px, 1.2vw, 15px);
-  padding: 0 5%; }
+  font-size: clamp(12px, 1.2vw, 15px);
+  padding: 10px 5%; }
 
 .logo-pipi {
   animation-name: aparece;
