@@ -96,6 +96,22 @@ footer {
     font-family: "Lobster", cursive;
     font-size: clamp(13px, 6.2vw, 62px); }
 
+form {
+  padding: 25px 0px 0px 0px; }
+  form label {
+    padding: 5px 0px 0px 0px; }
+  form textarea {
+    margin: 0px 0px 10px 0px; }
+  form .botones {
+    display: flex;
+    justify-content: space-between; }
+    form .botones input {
+      flex-grow: 1;
+      color: white;
+      background-color: #c2bb5f;
+      border: none;
+      margin: 3px; }
+
 .galeriaGrid {
   display: grid;
   grid-template-areas: "f1 f2 f3" "f4 f2 f5";

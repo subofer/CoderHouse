@@ -132,6 +132,27 @@ footer{
  	}
  }
 
+ form{
+ 		padding:25px 0px 0px 0px;
+ 	label{
+ 		padding:5px 0px 0px 0px;
+ 	}
+ 	textarea{
+ 		margin:0px 0px 10px 0px;
+ 	}
+ 	.botones{
+ 		display: flex;
+ 		justify-content: space-between;
+ 		input{
+ 			flex-grow: 1;
+ 			color: white;
+ 			background-color: $Nav--Fondo__color;
+ 			border: none;
+ 			margin: 3px;
+ 		}
+ 	}
+}
+
 .galeriaGrid{
 	display: grid;
 	grid-template-areas:
