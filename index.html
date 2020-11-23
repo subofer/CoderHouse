@@ -172,17 +172,10 @@
 
         <nav id="navfooter">
         	<script type="text/javascript">
-        	// Get the element
-			var elem = document.querySelector('#barra_nav');
-			
-			// Create a copy of it
-			var clone = elem.cloneNode(true);
-			
-			// Update the ID and add a class
-			clone.id = 'barra_nav_footer';
-			// Inject it into the DOM
-			//elem.after( $( "navfooter" ));
-			$( "#navfooter" ).after(clone);
+				var elem = document.querySelector('#barra_nav');
+				var clone = elem.cloneNode(true);
+				clone.id = 'barra_nav_footer';
+				$( "#navfooter" ).after(clone);
 	 	   </script> 
 		</nav>
 
