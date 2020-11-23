@@ -79,21 +79,29 @@ footer {
   margin: 40px 0px;
   font-size: clamp(10px, 1.2vw, 15px);
   padding: 10px 5%; }
-  footer nav {
+  footer #barra_nav_footer {
     grid-area: footer-nav;
     height: auto;
     position: relative; }
-    footer nav ul {
+    footer #barra_nav_footer ul {
       margin: 0;
       padding: 0;
       list-style: none;
       height: 93px; }
-      footer nav ul li {
-        display: inline-block;
+      footer #barra_nav_footer ul li {
+        display: block;
         width: 110px;
-        height: 93px;
+        height: auto;
         text-align: center;
         vertical-align: middle; }
+        footer #barra_nav_footer ul li a {
+          text-decoration: none !important;
+          color: white;
+          font-size: clamp(10px, 3vw, 22px);
+          display: block; }
+          footer #barra_nav_footer ul li a:hover, footer #barra_nav_footer ul li a[href="#"] {
+            color: white !important;
+            background: linear-gradient(90deg, #c2bb5f 0%, rgba(140, 140, 70, 0.8) 50%, #c2bb5f 100%); }
 
 .logo-pipi {
   animation-name: aparece;
