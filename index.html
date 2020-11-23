@@ -8,7 +8,7 @@
     <meta name="keywords" content="Milanesas, hamburguesas, pollo, carne, cerdo, vegetarianas">
 
 
-    
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     
     <!-- Required meta tags -->
@@ -30,7 +30,7 @@
             <p>La cocina de la Pipi</p>
         </div>
 
-        <nav> <!-- Menu de navegación -->
+        <nav id="barra_nav"> <!-- Menu de navegación -->
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="pages/precios.html">Precios</a></li>
@@ -83,23 +83,61 @@
                         </ol>
 
                         <div class="carousel-inner">
-                            <div class="carousel-item active">  <img class="d-block w-100" src="images/productos/avena.png" alt="Avena">                            </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/berenjenas.png" alt="Berenjenas">                  </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/brocoli.png" alt="Brocoli">                        </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/garbanzos.png" alt="Garbanzos">                    </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/ham_carne_cocida.png" alt="Ham Carne">             </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/ham_carne_cruda.png" alt="Ham Carne">              </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/ham_cerdo_cruda.png" alt="Ham Cerdo">              </div>   
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/ham_remolacha_cruda.png" alt="Ham Remolacha">      </div>  
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/mila_berenjena_cruda.png" alt="Mila Berenjena">    </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/mila_calabaza_cocida.png" alt="Mila Calabaza">     </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/mila_peceto_cruda.png" alt="Mila Peceto">          </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/mila_pollo_cruda.png" alt="Mila Pollo">            </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/nalga.png" alt="Nalga">                            </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/peceto.png" alt="Peceto">                          </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/remolacha.png" alt="Remolacha">                    </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/zapallo.png" alt="Zapallo">                        </div>
-                            <div class="carousel-item">         <img class="d-block w-100" src="images/productos/zucchini.png" alt="Zucchini">                      </div>     
+                            <div class="carousel-item active">  
+                            	<img class="d-block w-100" src="images/productos/avena.png" alt="Avena">                            
+								<<!-- Para poner Notas sobre las imagenes del carrousel
+								<div class="carousel-caption">
+									<h3>Le ponemos avena, como hacia la Abuela</h3>
+								</div> -->
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/berenjenas.png" alt="Berenjenas">                  
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/brocoli.png" alt="Brocoli">                        
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/garbanzos.png" alt="Garbanzos">                    
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/ham_carne_cocida.png" alt="Ham Carne">             
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/ham_carne_cruda.png" alt="Ham Carne">              
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/ham_cerdo_cruda.png" alt="Ham Cerdo">              
+                            </div>   
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/ham_remolacha_cruda.png" alt="Ham Remolacha">      
+                            </div>  
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/mila_berenjena_cruda.png" alt="Mila Berenjena">    
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/mila_calabaza_cocida.png" alt="Mila Calabaza">     
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/mila_peceto_cruda.png" alt="Mila Peceto">          
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/mila_pollo_cruda.png" alt="Mila Pollo">            
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/nalga.png" alt="Nalga">                            
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/peceto.png" alt="Peceto">                          
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/remolacha.png" alt="Remolacha">                    
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/zapallo.png" alt="Zapallo">                        
+                            </div>
+                            <div class="carousel-item">         
+                            	<img class="d-block w-100" src="images/productos/zucchini.png" alt="Zucchini">                      
+                            </div>     
                         </div>
 
                         <a class="carousel-control-prev" href="#calesita" role="button" data-slide="prev">
@@ -125,7 +163,36 @@
     </main>
 
     <footer>
-        No nos reservamos ningun derecho, creemos en hacer cosas buenas y de calidad para compartir con el mundo, si te sirve algo de este sitio o de su codigo fuente usalo con salud =)
+        
+
+        <div class="logo-footer">
+            <img src="images/logo-transparente.png" alt="La cocina de la Pipi">
+            <p>La cocina de la Pipi</p>
+        </div>
+
+        <nav id="navfooter">
+        	<script type="text/javascript">
+        	// Get the element
+			var elem = document.querySelector('#barra_nav');
+			
+			// Create a copy of it
+			var clone = elem.cloneNode(true);
+			
+			// Update the ID and add a class
+			clone.id = 'barra_nav_footer';
+			// Inject it into the DOM
+			//elem.after( $( "navfooter" ));
+			$( "#navfooter" ).after(clone);
+	 	   </script> 
+		</nav>
+
+
+
+        </script>
+        	
+        </div>
+			No nos reservamos ningun derecho, creemos en hacer cosas buenas y de calidad para compartir con el mundo, si te sirve algo de este sitio o de su codigo fuente usalo con salud =)
+
     </footer>
 
     

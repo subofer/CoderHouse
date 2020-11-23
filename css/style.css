@@ -76,9 +76,24 @@ footer {
   text-align: center;
   justify-content: center;
   color: white;
-  margin-top: 40px;
+  margin: 40px 0px;
   font-size: clamp(10px, 1.2vw, 15px);
   padding: 10px 5%; }
+  footer nav {
+    grid-area: footer-nav;
+    height: auto;
+    position: relative; }
+    footer nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      height: 93px; }
+      footer nav ul li {
+        display: inline-block;
+        width: 110px;
+        height: 93px;
+        text-align: center;
+        vertical-align: middle; }
 
 .logo-pipi {
   animation-name: aparece;
@@ -96,6 +111,20 @@ footer {
     font-family: "Lobster", cursive;
     font-size: clamp(13px, 6.2vw, 62px); }
 
+.logo-footer {
+  position: relative; }
+  .logo-footer img {
+    max-width: 80%; }
+  .logo-footer > p {
+    white-space: pre;
+    color: #c2bb5f;
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Lobster", cursive;
+    font-size: clamp(10px, 3.1vw, 60px); }
+
 form {
   padding: 25px 0px 0px 0px; }
   form label {
@@ -111,40 +140,6 @@ form {
       background-color: #c2bb5f;
       border: none;
       margin: 3px; }
-
-.galeriaGrid {
-  display: grid;
-  grid-template-areas: "f1 f2 f3" "f4 f2 f5";
-  justify-content: center;
-  align-items: stretch;
-  align-content: center;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr; }
-
-.galeriaItem {
-  filter: blur(1.5px) grayscale(70%);
-  width: 80%;
-  padding: 5px 0px 0px 20px; }
-  .galeriaItem:hover {
-    filter: blur(0px) grayscale(0%);
-    transform: scale(1.05);
-    transition: 0.5s;
-    z-index: 9999; }
-
-.f1 {
-  grid-area: f1; }
-
-.f2 {
-  grid-area: f2; }
-
-.f3 {
-  grid-area: f3; }
-
-.f4 {
-  grid-area: f4; }
-
-.f5 {
-  grid-area: f5; }
 
 #TipoMilanesas:before {
   content: attr(aria-label);
