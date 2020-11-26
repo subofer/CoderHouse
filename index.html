@@ -23,14 +23,13 @@
 </head>
 
 <body>
-    <header>
-    	<!--Logo marca -->
-        <div class="logo-pipi">
+   <header>
+        <div id="header-logo">
             <img src="images/logo-pipi.png" alt="La cocina de la Pipi">
             <p>La cocina de la Pipi</p>
         </div>
 
-        <nav id="barra_nav"> <!-- Menu de navegación -->
+        <nav id="header-nav"> <!-- Menu de navegación -->
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="pages/precios.html">Precios</a></li>
@@ -40,6 +39,16 @@
             </ul>
         </nav>
     </header>
+
+
+
+
+
+
+
+
+
+
 
 <!-- Esta sección Main contiene un carrousel en Bootstrap para cumplir con la 3r entrega del proyecto final -->
     <main> 
@@ -162,31 +171,34 @@
         </div>    
     </main>
 
-    <footer>
-        
-
-        <div class="logo-footer">
+    <footer class="footer">
+    	<div id="footer-logo" class="footer-logo">
             <img src="images/logo-transparente.png" alt="La cocina de la Pipi">
             <p>La cocina de la Pipi</p>
         </div>
-
-        <nav id="navfooter">
-        	<script type="text/javascript">
-				var elem = document.querySelector('#barra_nav');
+       	
+       	<script type="text/javascript">
+ 	   			var elem = document.querySelector('#header-nav');
 				var clone = elem.cloneNode(true);
-				clone.id = 'barra_nav_footer';
-				$( "#navfooter" ).after(clone);
-	 	   </script> 
-		</nav>
+				clone.setAttribute("id", 'footer-nav');
+				clone.setAttribute("class", 'footer-nav');
+				$( ".footer-logo" ).after(clone);
+ 	   </script> 
 
+        <div class="footer-contacto">
+			<p>contacto 1</p>
+			<p>telefono</p>
+    	</div>
 
+		<div class="footer-redes">
+			<p>redes</p>
+    	</div>
 
-        </script>
-        	
-        </div>
+        <div class="footer-derechos">
 			No nos reservamos ningun derecho, creemos en hacer cosas buenas y de calidad para compartir con el mundo, si te sirve algo de este sitio o de su codigo fuente usalo con salud =)
+    	</div>
 
-    </footer>
+	</footer>
 
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
