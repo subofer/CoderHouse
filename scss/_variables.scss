@@ -1,6 +1,8 @@
 //*Fuente/
 	$Logo--Fuente__Url:'https://fonts.googleapis.com/css2?family=Lobster&display=swap';
 	$Logo--Fuente__Nombre:'Lobster', cursive;
+	$Nekro--Fuente__Url:'https://fonts.googleapis.com/css2?family=Nerko+One&display=swap';
+	$Nekro--Fuente__Nombre:'Nerko One', cursive;
 //*Body*/
 	$Body--Ancho:80vw;
 	$Body--Ancho__max: 800px;
@@ -10,7 +12,9 @@
 //*nav*/
 	$Nav__alto: 40px;
 	$Nav--Fondo__color: #c2bb5f;
-	$Nav--Li__activo:linear-gradient(90deg, rgba(194,187,95,1) 0%,rgba(140,140,70,.8) 50%, rgba(194,187,95,1) 100%);
+	$Nav--Li__activo:linear-gradient(90deg, rgba(194,187,95,1) 0%,rgba(140,140,70,.6) 50%, rgba(194,187,95,1) 100%);
+//Main
+	$Main--FuenteH1__Color: #70560D;
 //*footer*/
 	$Footer--Fondo__color: #848151;
 	$Footer--Alto:.65; //*relacion del alto con respecto al Nav*/
