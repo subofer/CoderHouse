@@ -22,23 +22,21 @@ function cargar_contenido(destino){
     $(".link-"+ destino).addClass("activo");
     
     //seleccion de descripciones segun contenido.
+    var titulo_ = 'La Cocina de la Pipi'
+    document.title = destino.charAt(0).toUpperCase() + destino.slice(1) + " - " + titulo_;
     var palabras_clave ="";    
     switch (destino) {
        case 'precios':
            palabras_clave ='Lista de productos y sus precios';
-           document.title = 'LcDlP ' + destino;
         break;
        case 'productos':
            palabras_clave ='Fotos de nuestros productos, para que se te haga agua la boca';
-           document.title = 'LcDlP ' + destino;
         break;
        case 'recetas':
            palabras_clave ='Algunas recetas para tus milanesas';
-           document.title = 'LcDlP ' + destino;
         break;
        case 'contacto':
            palabras_clave ='Contactanos para hacer tu pedido, te lo llevamos o podes pasarlo a buscar';
-           document.title = 'LcDlP ' + destino;
         break;
        default:
            //contenido por defecto, home.
