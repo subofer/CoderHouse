@@ -4,9 +4,32 @@
 @import url($Nekro--Fuente__Url);
 
 //Agrega bordes a todos los elementos para un mejor debug.
-*{
+*,
+*::before,
+*::after {
 	//border: 1px solid black;
 	box-sizing: border-box;
+}
+
+@mixin fondo($url){
+	&::before{
+		background-image: url($url);
+		background-position: center;
+  		background-repeat: no-repeat;
+  		
+  		background-attachment: local;
+  		background-size: cover;
+ 		  		
+		content: "";
+   		position: fixed;
+  		bottom: 0;
+  		right: 0;
+  		width: 100vw;
+    	height: 100vh;
+    	z-index: -1;
+    	opacity: 0.15;
+    	
+ 	}
 }
 
 html, body{
@@ -21,11 +44,15 @@ html, body{
 	&::-webkit-scrollbar {
   			display: none; /* Chrome */
 	}
-
 }
 
+body{
+	@include fondo('../images/productos-hd/fondo.jpg');
+}
+
+
 //Compuesto para el logo del header y el footer.
-@mixin logo($padre, $top, $fuente_min, $fuente_variable, $fuente_max){
+@mixin logo($padre, $fuente_min, $fuente_variable, $fuente_max){
 	.#{$padre}-logo{
 		text-align: center; /* Centered text */
 		img{
@@ -37,7 +64,7 @@ html, body{
 			//Centrado del texto en el logo.
 			position: absolute;
 			left: 50%;
-			top: $top;
+			top: 50%;
 			transform: translate(-50%, -50%);
 			//Nombre, color y tamaño de fuente.
 			font-size: clamp($fuente_min, $fuente_variable, $fuente_max);
@@ -45,13 +72,10 @@ html, body{
 			font-family: $Logo--Fuente__Nombre;
 		}
  	}
-}
-
+} 
 
 //Header, centrado del texo, logo, y nav.
 header{
-	//Compuesto del logo del header.
-	@include logo("header",48%,13px,7.4vw,85px);
 	background-color:white;
 	nav {
 		background-color: $Nav--Fondo__color;
@@ -73,7 +97,12 @@ header{
 		}
 	}
 }
+
+
+
+
 main{
+	//Color filtro para apagar la imagen de fondo.
 	h1{
 		color: $Main--FuenteH1__Color;
 		font-size:  clamp(13px, 6vw, 40px);
@@ -85,34 +114,33 @@ main{
 	}
 	ul{
 		&:before{
-				margin:0 -5%;
-				font-family:$Nekro--Fuente__Nombre;
-				content:attr(aria-label);
-	    		font-size: 1.4rem;
-	    		font-weight:bold;
+			margin:0 -5%;
+			font-family:$Nekro--Fuente__Nombre;
+			content:attr(aria-label);
+	    	font-size: 1.4rem;
+	    	font-weight:bold;
 			}
 		list-style-type: square;
 		font-family:$Nekro--Fuente__Nombre;
 		font-size: 1.1rem;
 	}
 }
-
+table, .card, #calesita{
+	background: rgba(236, 236, 236, 0.8);
+	box-shadow: 0 0 10px 5px white;
+}
 //limito el ancho del footer a 1600px, porque queda bien, con esto completo los laterales.
 .porta_footer{ 
+	//Color de fondo del footer.	
 	background: $Footer--Fondo__color;
 	width: auto !important;
 }
 
 footer{
-	//Compuesto del Logo del footer.
-	@include logo("footer",55%,13px,5.4vw,55px);
-	
 	//esta medida es solo porque queda bien.
 	max-width: 1600px; 
-	
-	//Color de fondo del footer.	
-	background: $Footer--Fondo__color;
-
+	padding:0;
+ 		
 	ul{
 		color: white;
 		//Carga la etiqueta de la Lista.
@@ -179,21 +207,21 @@ form{
 // Celulares /*/*
 @media (max-width: 767.98px) { 
 	header{
-		@include logo("header",50%,13px,7.4vw,85px);
+		@include logo("header",13px,7.4vw,85px);
+	}
+	footer{
+		@include logo("footer",38px,10.4vw,80px);
 	}
 
-	footer{
-		@include logo("footer",55%,38px,10.4vw,80px);
-	}
 }
 
 // De tablet para arriba */*/*
 @media (min-width: 768px) and (max-width: 99991.98px) { 
 	header{
-		@include logo("header",50%,13px,7.4vw,85px);
+		@include logo("header",13px,7.4vw,85px);
+	}
+	footer{
+		@include logo("footer",13px,3.4vw,50px);
 	}
 
-	footer{
-		@include logo("footer",54.5%,13px,3.4vw,50px);
-	}
 }
