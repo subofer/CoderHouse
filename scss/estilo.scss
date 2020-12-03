@@ -129,6 +129,13 @@ table, .card, #calesita{
 	background: rgba(236, 236, 236, 0.8);
 	box-shadow: 0 0 10px 5px white;
 }
+
+.card:hover{
+		transform:scale(1.05);
+		z-index: 9999;
+}
+
+
 //limito el ancho del footer a 1600px, porque queda bien, con esto completo los laterales.
 .porta_footer{ 
 	//Color de fondo del footer.	
