@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
-*,
-*::before,
-*::after {
+@import url("https://fonts.googleapis.com/css2?family=Castoro&display=swap");
+*, *::before, *::after {
   box-sizing: border-box; }
 
 html, body {
@@ -17,7 +15,7 @@ html, body {
     /* Chrome */ }
 
 body::before {
-  background-image: url("../images/productos-hd/fondo.jpg");
+  background-image: url("../images/fondo.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: local;
@@ -51,16 +49,16 @@ main h1 {
   text-align: center; }
 
 main p {
-  font-family: "Roboto", sans-serif;
+  font-family: "Castoro", serif;
   font-size: 1.1rem; }
 
 main ul {
   list-style-type: square;
-  font-family: "Roboto", sans-serif;
+  font-family: "Castoro", serif;
   font-size: 1.1rem; }
   main ul:before {
     margin: 0 -5%;
-    font-family: "Roboto", sans-serif;
+    font-family: "Castoro", serif;
     content: attr(aria-label);
     font-size: 1.4rem;
     font-weight: bold; }
@@ -82,7 +80,7 @@ footer {
       font-size: 1.2rem;
       font-weight: bold; }
     footer ul li, footer ul .nav-item {
-      padding: 0.25rem 0;
+      padding: 0.45rem 0;
       white-space: pre;
       font-size: 1rem;
       font-weight: normal;
@@ -94,6 +92,7 @@ footer {
           font-weight: bold; }
 
 form {
+  width: 100%;
   padding: 25px 0px 0px 0px; }
   form label {
     padding: 5px 0px 0px 0px; }
@@ -108,9 +107,6 @@ form {
       background-color: #c2bb5f;
       border: none;
       margin: 3px; }
-
-.LogoWhat {
-  max-width: 32px; }
 
 @media (max-width: 767.98px) {
   header .header-logo {

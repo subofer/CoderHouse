@@ -1,15 +1,15 @@
 //*SCSS 
 @import "variables";
 @import url($Logo--Fuente__Url);
-@import url($Roboto--Fuente__Url);
+@import url($Main--Fuente__Url);
 
 //Agrega bordes a todos los elementos para un mejor debug.
-*,
-*::before,
-*::after {
+*,*::before,*::after {
 	//border: 1px solid black;
 	box-sizing: border-box;
 }
+
+
 
 @mixin fondo($url){
 	&::before{
@@ -47,7 +47,7 @@ html, body{
 }
 
 body{
-	@include fondo('../images/productos-hd/fondo.jpg');
+	@include fondo('../images/fondo.jpg');
 }
 
 
@@ -109,19 +109,19 @@ main{
 		text-align: center;
 	}
 	p{
-		font-family:$Roboto--Fuente__Nombre;
+		font-family:$Main--Fuente__Nombre;
 		font-size: 1.1rem;
 	}
 	ul{
 		&:before{
 			margin:0 -5%;
-			font-family:$Roboto--Fuente__Nombre;
+			font-family:$Main--Fuente__Nombre;
 			content:attr(aria-label);
 	    	font-size: 1.4rem;
 	    	font-weight:bold;
 			}
 		list-style-type: square;
-		font-family:$Roboto--Fuente__Nombre;
+		font-family:$Main--Fuente__Nombre;
 		font-size: 1.1rem;
 	}
 }
@@ -149,7 +149,7 @@ footer{
 		}
 
 		li, .nav-item{
-			padding:0.25rem 0;
+			padding:0.45rem 0;
 			white-space: pre;
 			font-size: 1rem;
 			font-weight:normal;
@@ -173,6 +173,7 @@ footer{
 //Formulario de la pagina de contacto.
 
 form{
+	width: 100%;
 	padding:25px 0px 0px 0px;
 
  	label{
@@ -196,11 +197,6 @@ form{
  		}
  	}
 }
-
-.LogoWhat{
-	max-width: 32px;
-}
-
 //Solo agrego medias query para los tamaños de las fuentes del logo.(por ahora)
 // Celulares /*/*
 @media (max-width: 767.98px) { 
