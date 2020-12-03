@@ -1,7 +1,7 @@
 //*SCSS 
 @import "variables";
 @import url($Logo--Fuente__Url);
-@import url($Nekro--Fuente__Url);
+@import url($Roboto--Fuente__Url);
 
 //Agrega bordes a todos los elementos para un mejor debug.
 *,
@@ -109,19 +109,19 @@ main{
 		text-align: center;
 	}
 	p{
-		font-family:$Nekro--Fuente__Nombre;
+		font-family:$Roboto--Fuente__Nombre;
 		font-size: 1.1rem;
 	}
 	ul{
 		&:before{
 			margin:0 -5%;
-			font-family:$Nekro--Fuente__Nombre;
+			font-family:$Roboto--Fuente__Nombre;
 			content:attr(aria-label);
 	    	font-size: 1.4rem;
 	    	font-weight:bold;
 			}
 		list-style-type: square;
-		font-family:$Nekro--Fuente__Nombre;
+		font-family:$Roboto--Fuente__Nombre;
 		font-size: 1.1rem;
 	}
 }
