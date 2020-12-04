@@ -140,7 +140,7 @@ form {
     height: 74px;
     background-color: red;
     position: fixed;
-    top: 92vh;
+    top: 80vh;
     right: 9px;
     z-index: 9999; }
     #pedidos .order_mobile img {
