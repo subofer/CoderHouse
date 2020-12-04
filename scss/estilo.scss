@@ -204,13 +204,11 @@ form{
  		}
  	}
 }
-
-
+//Correcciones para el tamaño del carrousell
 #calesita{
 	max-width: 820px;
 	.carousel-inner{
 		overflow: hidden;
-		box-sizing:content-box;
 		&>img{
 	    	object-fit:cover;
 	    	box-sizing:content-box;
@@ -218,8 +216,6 @@ form{
 		}
 	}
 }
-
-
 
 #pedidos {
   	.order_desktop{
@@ -250,8 +246,6 @@ form{
 #calesita{
 	max-width: 100%;
 }
-
-
 	#pedidos{
 		.order_mobile{
 			animation: aparece 0.7s;

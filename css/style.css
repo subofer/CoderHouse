@@ -115,8 +115,7 @@ form {
 #calesita {
   max-width: 820px; }
   #calesita .carousel-inner {
-    overflow: hidden;
-    box-sizing: content-box; }
+    overflow: hidden; }
     #calesita .carousel-inner > img {
       object-fit: cover;
       box-sizing: content-box;
