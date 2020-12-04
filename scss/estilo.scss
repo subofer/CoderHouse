@@ -176,9 +176,7 @@ footer{
 }
 
 
-
 //Formulario de la pagina de contacto.
-
 form{
 	width: 100%;
 	padding:25px 0px 0px 0px;
@@ -205,45 +203,59 @@ form{
  	}
 }
 
-
 #pedidos {
-  	width: 130px;
-  	height: 60px;
-  	background-color:red;
-  	position: relative;
-  	top: 50%;
-  	left: 0px;
-  	left: 0px;
-  	z-index: 99999;
-  	img{
-  		width: 100%;
-  		height: 100%;
-  	}
-	&:hover{
-		transform:scale(1.05);
-		z-index: 9999;
+  	.order_desktop{
+  		animation: aparece 0.7s;
+  		width: 130px;
+  		height: 60px;
+	  	position: fixed;
+  		top: 10vh;
+  		right: 0px;
+  		z-index: 9999;
+  		img{
+  			border-radius: 15px 0 0 15px;
+  			width: 100%;
+  			height: 100%;
+  			&:hover{
+				transform:scale(1.1);
+			}
+		}
+	}
+	.order_mobile{
+		z-index: -1;
+		opacity: 0;
 	}
 }
 
 
-
-
-
-
-
-@media (max-width: 950px) { 
+@media (max-width: 920px) { 
 	#pedidos{
-		left: -118px;
-		&:hover{
-		left: 0px;
+		.order_mobile{
+			animation: aparece 0.7s;
+			border-radius: 50px;
+			opacity: 1;
+	  		width: 74px;
+	  		height: 74px;
+	  		background-color:red;
+	  		position: fixed;
+	  		top: 92vh;
+	  		right: 9px;
+	  		z-index: 9999;
+	  		img{
+  			    border-radius: 55px;
+	  			width: 100%;
+	  			height: 100%;
+	  			&:hover{
+					transform:scale(1.1);
+				}
+	  		}
+		}
+		.order_desktop{
+	  		z-index: -1;
+	  		opacity: 0;
 		}
 	}
 }
-
-
-
-
-
 
 //Solo agrego medias query para los tamaños de las fuentes del logo.(por ahora)
 // Celulares /*/*
