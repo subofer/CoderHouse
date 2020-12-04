@@ -136,6 +136,8 @@ table, .card, #calesita{
 }
 
 
+
+
 //limito el ancho del footer a 1600px, porque queda bien, con esto completo los laterales.
 .porta_footer{ 
 	//Color de fondo del footer.	
@@ -203,6 +205,22 @@ form{
  	}
 }
 
+
+#calesita{
+	max-width: 820px;
+	.carousel-inner{
+		overflow: hidden;
+		box-sizing:content-box;
+		&>img{
+	    	object-fit:cover;
+	    	box-sizing:content-box;
+	    	max-height: 100%;
+		}
+	}
+}
+
+
+
 #pedidos {
   	.order_desktop{
   		animation: aparece 0.7s;
@@ -228,7 +246,12 @@ form{
 }
 
 
-@media (max-width: 920px) { 
+@media (max-width: 950px) { 
+#calesita{
+	max-width: 100%;
+}
+
+
 	#pedidos{
 		.order_mobile{
 			animation: aparece 0.7s;
