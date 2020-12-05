@@ -84,7 +84,7 @@ footer {
       font-size: 1.2rem;
       font-weight: bold; }
     footer ul li, footer ul .nav-item {
-      padding: 0.45rem 0;
+      padding: 0.35rem 0;
       white-space: pre;
       font-size: 1rem;
       font-weight: normal;
@@ -166,6 +166,8 @@ form {
         #pedidos .order_mobile img:hover {
           transform: scale(1.1); }
     #pedidos .order_desktop {
+      width: 1px;
+      height: 1px;
       z-index: -1;
       opacity: 0; } }
 
