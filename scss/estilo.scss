@@ -218,6 +218,10 @@ form{
 }
 
 #pedidos {
+//padding:0;
+//margin: 0;
+//max-height: 0;
+//background: red;
   	.order_desktop{
   		animation: aparece 0.7s;
   		width: 130px;
@@ -238,15 +242,19 @@ form{
 	.order_mobile{
 		z-index: -1;
 		opacity: 0;
+		width: 1px;
+  		height: 1px;
 	}
 }
 
 
 @media (max-width: 950px) { 
-#calesita{
-	max-width: 100%;
-}
+	#calesita{
+		max-width: 100%;
+	}
 	#pedidos{
+		height: 1px;
+		background: $Footer--Fondo__color;
 		.order_mobile{
 			animation: aparece 0.7s;
 			border-radius: 50px;

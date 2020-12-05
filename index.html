@@ -71,7 +71,7 @@
     
     <!--Comienzo del footer -->
     <div class="row porta_footer justify-content-center mb-0 pb-0">
-        <footer class="row justify-content-center align-items-top p-5 pb-0">
+        <footer class="row justify-content-center align-items-top pt-5 pb-0">
            
             <!--Logo footer-->
             <div class="footer-logo col-12 col-md-4">
@@ -130,45 +130,41 @@
                 </div>
             </div>
         
+            <div id="pedidos">
+                <img  class="order_desktop" data-toggle="modal" data-target="#pedido_online" src="images/order_desktop.jpg" alt="Pedi Online">
+                <img class="order_mobile" data-toggle="modal" data-target="#pedido_online" src="images/order_mobile.jpg" alt="Pedi Online">
+            <!-- Modal Pedidos online -->
+                <div class="modal fade" id="pedido_online" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Hace tu pedido!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Ingres&aacute; el pedido y toc&aacute; en enviar para mandarlo por WhatsApp</p>
+                                <form action="https://wa.me/5491122100001" target="_blank">
+                                    <div class="form-group">
+                                        <textarea class="form-control"  id="text" name="text" rows="5" placeholder="Ingrese su Pedido"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="reset" class="btn btn-secondary">Borrar</button>
+                                        <button type="reset" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit button" value="Enviar" class="btn btn-primary">Enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
-
 <!--Fin del footer -->
 
- <div id="pedidos">
-    <img  class="order_desktop" data-toggle="modal" data-target="#pedido_online" src="images/order_desktop.jpg" alt="Pedi Online"></a>
-    <img class="order_mobile" data-toggle="modal" data-target="#pedido_online" src="images/order_mobile.jpg" alt="Pedi Online"></a>
-</div>
-
-<!-- Modal Pedidos online -->
-<div class="modal fade" id="pedido_online" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Hace tu pedido!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Ingres&aacute; el pedido y toc&aacute; en enviar para mandarlo por WhatsApp</p>
-        <form action="https://wa.me/5491122100001" target="_blank">
-            <div class="form-group">
-                <textarea class="form-control"  id="text" name="text" rows="5" placeholder="Ingrese su Pedido"></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="reset" class="btn btn-secondary">Borrar</button>
-                <button type="reset" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit button" value="Enviar" class="btn btn-primary">Enviar</button>
-            </div>
-        </form>
-    </div>
-  </div>
-</div>
-
-
 <!-- Scripts -->
-
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
