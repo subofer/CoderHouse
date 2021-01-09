@@ -16,8 +16,8 @@ class Pedido {
 	}
 
 	setDestino(destino){
-		this.destino 	= destino[0];
-		this.envio  	= destino[1];
+		this.destino 	= destino.destino;
+		this.envio  	= destino.envio;
 	}
 
 	ShowCart(){

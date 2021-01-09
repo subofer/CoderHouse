@@ -2,10 +2,10 @@ class Productos {
 
   constructor(item,cantidad) {
 
-    this.familia	= item[0];
-    this.especie	= item[1];
-    this.precio		= item[2];
-    this.cantidad	= cantidad;
+    this.familia  = item.familia;
+    this.especie  = item.especie;
+    this.precio   = item.precio;
+    this.cantidad = cantidad;
 
   }
 
