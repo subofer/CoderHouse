@@ -17,6 +17,10 @@ class Productos {
   	return this.precio ;
   }
 
+  setPrecio(valor){
+    this.precio = valor;
+  }
+
   setCantidad(cantidad){
   	this.cantidad = cantidad;
   }

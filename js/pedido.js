@@ -33,13 +33,17 @@ class Pedido {
 	}
 
 	CalcularTotal(){
-		for (const item of this.cart) {     //<--- aca es como si fuera un forEach
-			this.total += item.getPrecioTotal();
-		};
-		this.SetTotal(this.total + this.CalcularEnvio);
+		let parcial = 0;
+		
+		this.cart.forEach(function(item){
+			parcial += item.getPrecioTotal();
+		});
+			
+		this.SetTotal(parcial + this.getEnvio());
+		this.ShowTotal();
 	}
 
-	CalcularEnvio(){
+	getEnvio(){
 		return this.envio;
 	} 
 
