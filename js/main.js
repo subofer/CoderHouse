@@ -44,7 +44,7 @@ const catalogoJson =
 		"tipo":"Pechuga de pollo",
 		"precio":100
 	},{
-		"id":"002";
+		"id":"002",
 		"familia":"Milanesa",
 		"tipo":"Muslo de pollo",
 		"precio":100
