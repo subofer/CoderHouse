@@ -9,9 +9,9 @@ class Pedido {
 		this.cart.push(item);
 	}
 
-	removeItem(itemAremover){
+	removeItem(item_a_remover){
 		this.cart = this.cart.filter(
-			carro => carro != itemAremover
+			carro => carro != item_a_remover
 			);
 	}
 

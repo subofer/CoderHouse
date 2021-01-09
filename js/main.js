@@ -39,7 +39,7 @@ const catalogo = [
 //por ahora no voy a usar el Json
 const catalogoJson =
 [{		
-		"id":"001";
+		"id":"001",
 		"familia":"Milanesa",
 		"tipo":"Pechuga de pollo",
 		"precio":100
@@ -50,32 +50,32 @@ const catalogoJson =
 		"precio":100
 	},{
 
-		"id":"003";
+		"id":"003",
 		"familia":"Milanesa",
 		"tipo":"Peceto",
 		"precio":100
 	},{
-		"id":"004";
+		"id":"004",
 		"familia":"Milanesa",
 		"tipo":"Nalga",
 		"precio":100
 	},{
-		"id":"005";
+		"id":"005",
 		"familia":"Hamburguesa",
 		"tipo":"pollo",
 		"precio":100
 	},{
-		"id":"006";
+		"id":"006",
 		"familia":"Hamburguesa",
 		"tipo":"cerdo",
 		"precio":100
 	},{
-		"id":"007";
+		"id":"007",
 		"familia":"Hamburguesa",
 		"tipo":"carne",
 		"precio":100
 	},{
-		"id":"008";
+		"id":"008",
 		"familia":"Hamburguesa",
 		"tipo":"verdura",
 		"precio":100
