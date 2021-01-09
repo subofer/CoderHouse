@@ -5,7 +5,7 @@ class Pedido {
 		this.envio = 0;
 	}
 
-	addNewItem(item){
+	addItem(item){
 		this.cart.push(item);
 	}
 

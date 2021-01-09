@@ -22,7 +22,7 @@ let destinos = [
 	["resto del mundo",150]
 ]
 
-let catalogo = [
+const catalogo = [
 	["Milanesa","Pechuga de pollo", 100],
 	["Milanesa","Muslo de pollo",  	100],
 	["Milanesa","Peceto",  			100], 
@@ -34,6 +34,56 @@ let catalogo = [
 ];
 
 
+
+const catalogoJson =
+[{
+		"familia":"Milanesa",
+		"tipo":"Pechuga de pollo",
+		"precio":100
+	},{
+		"familia":"Milanesa",
+		"tipo":"Muslo de pollo",
+		"precio":100
+	},{
+		"familia":"Milanesa",
+		"tipo":"Peceto",
+		"precio":100
+	},{
+		"familia":"Milanesa",
+		"tipo":"Nalga",
+		"precio":100
+	},{
+		"familia":"Hamburguesa",
+		"tipo":"pollo",
+		"precio":100
+	},{
+		"familia":"Hamburguesa",
+		"tipo":"cerdo",
+		"precio":100
+	},{
+		"familia":"Hamburguesa",
+		"tipo":"carne",
+		"precio":100
+	},{
+		"familia":"Hamburguesa",
+		"tipo":"verdura",
+		"precio":100
+	}
+];
+
+console.log(catalogoJson);
+/*
+console.log("[");
+catalogo.forEach(function(item){
+		console.log("{")
+		console.log('"familia":"'+item[0] + '",');
+		console.log('"tipo":"'+item[1]+ '",');
+		console.log('"precio":'+item[2]+ ',');
+		console.log("},")
+	});
+console.log("]")
+
+*/
 
 
 //Esta clase es el carrito
@@ -48,8 +98,8 @@ let pedido_2_cliente = new Productos(catalogo[1],5);
 
 
 
-carrito.addNewItem(pedido_1_cliente);
-carrito.addNewItem(pedido_2_cliente);
+carrito.addItem(pedido_1_cliente);
+carrito.addItem(pedido_2_cliente);
 
 carrito.setDestino(destinos[0]);
 
