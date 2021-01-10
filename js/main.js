@@ -107,3 +107,22 @@ carrito.CalcularTotal();
 console.log(carrito.ShowCart());
 console.log(carrito.ShowTotal());
 
+
+
+//-------- EL DESAFIO HASTA ACA -----------------------
+
+
+//-------------ACA estoy probando cosas
+
+/*
+let url = "https://apis.datos.gob.ar/georef/api/provincias"
+let tata;
+
+fetch(url).then(function (response){
+	tata = response.json()
+	return tata;
+}).then(function (tata){
+	console.log(tata);	
+});
+
+*/
