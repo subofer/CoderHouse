@@ -4,22 +4,56 @@ cargarProvincias();
 
 
 
+class geo{
 
-const requestURL = 'https://apis.datos.gob.ar/georef/api/provincias';
-const request = new XMLHttpRequest();
-var superHeroesText;
+	constructor(){
+		const requestURL = 'https://apis.datos.gob.ar/georef/api/provincias';
+		const request = new XMLHttpRequest();
+		var superHeroesText;
+		
+		request.open('GET', requestURL);
+		request.responseType = 'json'; // recibimos una cadena de tipo "string"
+		request.send();
+		
+		request.onload = function() {
+		  superHeroesText = request.response; // cogemos la cadena de response
+		  //console.log(superHeroesText);
+		  this.lista=superHeroesText;
+		}
 
-request.open('GET', requestURL);
-request.responseType = 'json'; // recibimos una cadena de tipo "string"
-request.send();
+	}
 
-request.onload = function() {
-  superHeroesText = request.response; // cogemos la cadena de response
-  return superHeroesText;
+	getLista(){
+		return this.lista;
+	}
+
 }
 
 
-  console.log(superHeroesText);
+
+let provincias = new geo;
+
+
+//console.log(provincias.getLista());
+
+
+let Aurl = "https://apis.datos.gob.ar/georef/api/provincias"
+
+async function myFetch() {
+  let response = await fetch(Aurl);
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  } else {
+  	console.log(response);
+  }
+}
+
+myFetch()
+.catch(e => {
+  console.log('There has been a problem with your fetch operation: ' + e.message);
+});
+
 
 /*
 class Georef{
@@ -144,7 +178,7 @@ function calcular_destino(lat2,lon2){
 	 var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 	 var d = R * c;
 	
-	return d.toFixed(0); //Retorna tres decimales
+	return d.toFixed(0); //Rendondeo
  }
 
 
