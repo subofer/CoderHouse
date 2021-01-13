@@ -91,8 +91,7 @@ function cargarDatos(url,tipo,vaciar){
 	    	return a.id.localeCompare(b.id);
 		});
 
-	  	if(vaciar){VaciarCombo(tipo)};
-
+	  	VaciarCombo(tipo,vaciar);
 	  	CargarCombo(jsonResponse[tipo],tipo);
 	  })
 }
@@ -139,8 +138,8 @@ function CargarCombo(json,destino){
    			});
 };
 
-function VaciarCombo(id){
-	document.getElementById(id).innerHTML = "";
+function VaciarCombo(id, vaciar = true){
+	if (vaciar){document.getElementById(id).innerHTML = ""};
 }
 
 
@@ -187,4 +186,36 @@ function generarMapa(lat,lon,dist){
 	var div = document.createElement('div');
     div.innerHTML = framito;
     document.getElementById('mapita').appendChild(div);
+}
+
+
+
+
+
+
+
+
+function result(res) {
+  console.log(res);
+}
+
+function getThumbnail(vUrl) {
+   var thumbnail   = '';
+   var title       = '';
+   var caption     = '';
+   var content     = '';
+
+   $.getJSON("http://api.embed.ly/1/oembed?key=:key&url="+vurl, function(data) {
+     var thumbnail = data.thumbnail_url;
+     console.log(thumbnail);
+
+     var result = {
+        thumbnail:thumbnail,
+        vurl:vurl
+      };
+
+     // passing the result to a function
+     getResult(result);
+
+   });
 }

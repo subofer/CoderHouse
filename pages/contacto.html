@@ -1,10 +1,9 @@
 
+
 <script defer type="text/javascript" src="./js/productos.js"></script>
 <script defer type="text/javascript" src="./js/pedido.js"></script>
+
 <script defer type="text/javascript" src="./js/main.js"></script>
-
-<script defer type="text/javascript" src="./js/provincias.js"></script>
-
 <div class="row justify-content-center py-3">   
      <div class="col-12 pb-4">
             <h1>Contactate con nosotros o hac&eacute; tu pedido</h1>
@@ -14,10 +13,7 @@
             <div> 
                 <p>Pod&eacute;s pasar a retirar, te lo llevamos o vemos como hacemos, la idea es comer milanesas. </p>
             </div>
-           <!-- <div style="max-width: 100%">
-                <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Villa%20Rosa,%20buenos%20aires+(La%20cocina%20de%20la%20Pipi)&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                </iframe>
-            </div>-->
+           
         </section>
     </div>
 
@@ -26,41 +22,21 @@
     <div class="col-10 col-lg-8">  
         <form action="https://wa.me/5491122100001" target="_blank">
             <div class="form-group">
-                <p>
-                    <label for="text">
-                        Ingres&aacute; el pedido y toc&aacute; en enviar para mandarlo por WhatsApp
-                        o llamanos al <a class="PhoneNumber" href="tel:123123123" target="_blank">123123123</a>
-                    </label>
-                </p>
-                
-                <textarea class="form-control"  id="text" name="text" rows="5" placeholder="Ingrese su Pedido"></textarea>
-                
-                
-                
-                <div class="botones btn-toolbar">
+               <div class="botones btn-toolbar">
                     <!--<input type="submit" value="Enviar">-->
                     <input onclick="()" value="Enviar">
-                    <input type="reset" value="Borrar">
+                    <input type="reset" value="Borrar" onclick="Mostrargeo()">
+
+                    <input type="reset" value="provincia" onclick="prov('14')">
+
+                        <select id="provincias" name="provincias" onload='cargaProvincias();'>
+                            <option >Seleccione una provincia</option>
+                        </select>
+                        <select id="departamentos" name="departamentos" onchange="cargarLocalidades(this.value)">
+                            <option >Seleccione una provincia</option>
+                        </select>
+
                 </div>
             </div>
         </form>
-
-
-    <select id="provincias" name="provincias" onchange="cargarLocalidades(this.value)">
-        <option >Seleccione una provincia</option>
-    </select>
-
-    <select id="localidades" name="localidades" onchange="calcular_distancia(this.value)">
-        <option>Seleccione una localidad</option>
-    </select>
-
-
-   <select id="municipios" name="municipios">
-        <option>Seleccione un Municipio</option>
-    </select>
-
-<div id="mapita"></div>
-
-
-    </div>
 </div>

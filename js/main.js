@@ -106,9 +106,201 @@ carrito.removeItem(pedido_1_cliente);
 carrito.CalcularTotal();
 //muestro el carrito, y el total
 console.log(carrito.ShowCart());
-console.log(carrito.ShowTotal());
+ console.log(carrito.ShowTotal());
 
 
 
 //-------- EL DESAFIO HASTA ACA -----------------------
+/*
+	"provincias"
+		https://apis.datos.gob.ar/georef/api/provincias
+	"departamentos"
+		https://apis.datos.gob.ar/georef/api/departamentos?provincia=14&max=5000
 
+	"municipios"
+		https://apis.datos.gob.ar/georef/api/municipios?provincia=14&max=5000
+
+	"localidades-censales"
+		https://apis.datos.gob.ar/georef/api/localidades-censales?provincia=14&max=5000
+		https://apis.datos.gob.ar/georef/api/localidades-censales?departamento=14&max=5000
+
+	"asentamientos"
+		https://apis.datos.gob.ar/georef/api/asentamientos?provincia=14&max=5000
+		https://apis.datos.gob.ar/georef/api/asentamientos?departamento=14&max=5000
+
+	"localidades"
+		https://apis.datos.gob.ar/georef/api/localidades?provincia=14&max=5000
+		https://apis.datos.gob.ar/georef/api/localidades?departamento=14014&max=5000
+
+		https://apis.datos.gob.ar/georef/api/localidades?
+		provincia=Santa%20Fe
+		&departamento=Rosario
+		&municipio=Granadero%20Baigorria
+		&localidad_censal=Granadero%20Baigorria
+		&aplanar=true&campos=estandar&max=10&exacto=true
+
+	"calles"
+		https://apis.datos.gob.ar/georef/api/calles?departamento=14014&max=5000
+
+	"direcciones"
+		https://apis.datos.gob.ar/georef/api/direcciones?direccion=%22juan%20de%20garay%202233%22
+		https://apis.datos.gob.ar/georef/api/direcciones?direccion=%22juan%20de%20garay%202233%22&departamento=%22hurlingham%22
+
+
+		"lat":-34.58196471072006,"lon":-58.64679742979327}
+
+	"ubicacion"
+		https://apis.datos.gob.ar/georef/api/ubicacion?lat=-32.0588735436448&lon=-59.2014475514635
+
+	*/
+
+class georef {
+	
+	
+	
+	//el constructor obtiene la lista de provincias.
+	constructor(){
+		const masterUrl = "https://apis.datos.gob.ar/georef/api/provincias?orden=id";
+		this.apiGeoref;
+		this.temp;
+		fetch(masterUrl)
+		  .then(response => response.json())
+		  .then(jsonResponse =>	{
+		  	this.apiGeoref = jsonResponse.provincias;
+		  })
+	}
+
+
+	cargarDepartamento(provincia){
+		let index = this.devolerIndex(provincia)
+		if (!this.apiGeoref[index].hasOwnProperty('departamentos')){
+			fetch("https://apis.datos.gob.ar/georef/api/departamentos?provincia="+provincia+"&max=5000")
+		  		.then(response => response.json())
+		  		.then(jsonResponse =>	{
+						this.apiGeoref[index].departamentos = jsonResponse ;  
+						console.log(jsonResponse)
+				}
+			)
+		}
+	}
+
+	//Devuelve el Index de la Provincia en particular, por ID
+	devolerIndex(id){
+		return  this.apiGeoref.findIndex(prov=> prov.id === id);
+	}
+
+	//Carga todos los departamentos, falla por limite en la Api
+	cargarDepartamentos(){
+		this.apiGeoref.filter( provincia => this.cargarDepartamento(provincia.id));
+	}
+
+
+
+
+	responder(){
+		return this.apiGeoref;
+	}
+	
+	Provincias(){
+		return this.apiGeoref;
+	}
+
+	Departamentos(provincia){
+		return this.apiGeoref[this.devolerIndex(provincia)].departamentos;	
+	}
+
+	Provincia(codigo){
+		return this.apiGeoref.filter( provincia => provincia.id === codigo)[0];
+	}
+
+};
+
+
+let datos = new georef();
+
+
+function Mostrargeo(){
+	console.log(tata.provincias);
+}
+
+function prov(dato){
+	//console.log(datos);
+	//datos.cargarDepartamento("02")
+	
+
+	//console.log(datos.Provincias());
+	
+	console.log(datos.apiGeoref[1].nombre);
+	 cargaProvincias();
+}
+
+
+function cargaProvincias(){
+	
+	CargarCombo("provincias");
+	console.log("nada");
+
+}
+
+
+
+function meterEnCombo(tipo){
+	var select = document.getElementById(destino);
+	datos.apiGeoref.filter( item => {
+		var option = document.createElement('option');
+			option.value = item.id;
+   			option.text = item.nombre;
+    		select.add(option, 0);
+		}
+	);
+};
+
+
+
+
+
+
+
+
+function CargarCombo(destino){
+	var select = document.getElementById(destino);
+	datos.apiGeoref.filter( item => {
+		var option = document.createElement('option');
+			option.value = item.id;
+   			option.text = item.nombre;
+    		select.add(option, 0);
+		}
+	);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+const selectProvincia = id => data.provincias.filter( provincia => provincia.id === id);
+console.log(selectProvincia('14'));
+
+function selectProvincia(id) {
+  const prov = data.provincias.filter(function(provincia) {
+    if (provincia.id === id) {
+      return provincia;
+    }
+  });
+  return prov;
+}
+*/
