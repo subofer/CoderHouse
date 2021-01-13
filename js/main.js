@@ -155,152 +155,87 @@ console.log(carrito.ShowCart());
 	*/
 
 class georef {
-	
-	
-	
 	//el constructor obtiene la lista de provincias.
 	constructor(){
 		const masterUrl = "https://apis.datos.gob.ar/georef/api/provincias?orden=id";
 		this.apiGeoref;
-		this.temp;
 		fetch(masterUrl)
 		  .then(response => response.json())
 		  .then(jsonResponse =>	{
-		  	this.apiGeoref = jsonResponse.provincias;
+		  	this.apiGeoref = jsonResponse;
+		  	this.provincias = jsonResponse.provincias;
+		  	this.CargarCombo(this.provincias,"provincias");
+		  	document.getElementById("provincias").setAttribute("onchange", "ShowDeptos(this.value);");
 		  })
 	}
 
-
+	//Carga los departamentos en el arreglo de provincias
 	cargarDepartamento(provincia){
 		let index = this.devolerIndex(provincia)
-		if (!this.apiGeoref[index].hasOwnProperty('departamentos')){
 			fetch("https://apis.datos.gob.ar/georef/api/departamentos?provincia="+provincia+"&max=5000")
 		  		.then(response => response.json())
 		  		.then(jsonResponse =>	{
-						this.apiGeoref[index].departamentos = jsonResponse ;  
-						console.log(jsonResponse)
-				}
-			)
-		}
+						this.provincias[index].departamentos = jsonResponse.departamentos ; 
+						this.VaciarCombo("departamentos");
+						this.CargarCombo(jsonResponse.departamentos,"departamentos")
+					}
+				);
 	}
+	
 
 	//Devuelve el Index de la Provincia en particular, por ID
 	devolerIndex(id){
-		return  this.apiGeoref.findIndex(prov=> prov.id === id);
+		return this.provincias.findIndex(prov=> prov.id === id);
 	}
 
-	//Carga todos los departamentos, falla por limite en la Api
+	//Carga todos los departamentos, falla por limite en la Api !No usar por ahora.
 	cargarDepartamentos(){
 		this.apiGeoref.filter( provincia => this.cargarDepartamento(provincia.id));
 	}
 
-
-
-
-	responder(){
-		return this.apiGeoref;
+	Provincia(codigo){
+		return this.provincias.filter( provincia => provincia.id === codigo)[0];
 	}
 	
-	Provincias(){
-		return this.apiGeoref;
-	}
+	//carga el combo indicado
+	CargarCombo(lista, id){
+		var select = document.getElementById(id);
+		lista.filter( item => {
+			var option = document.createElement('option');
+				option.value = item.id;
+   				option.text = item.nombre;
+    			select.add(option, 0);
+			}
+		);
+	};
 
-	Departamentos(provincia){
-		return this.apiGeoref[this.devolerIndex(provincia)].departamentos;	
-	}
-
-	Provincia(codigo){
-		return this.apiGeoref.filter( provincia => provincia.id === codigo)[0];
+	//borra el contenido del combo indicado.
+	VaciarCombo(id, vaciar = true){
+		if (vaciar){document.getElementById(id).innerHTML = ""};
 	}
 
 };
+
+
+
 
 
 let datos = new georef();
 
 
-function Mostrargeo(){
-	console.log(tata.provincias);
-}
 
 function prov(dato){
+	console.log(datos.provincias);
 	//console.log(datos);
 	//datos.cargarDepartamento("02")
-	
-
 	//console.log(datos.Provincias());
-	
-	console.log(datos.apiGeoref[1].nombre);
-	 cargaProvincias();
-}
-
-
-function cargaProvincias(){
-	
-	CargarCombo("provincias");
-	console.log("nada");
+	//console.log(datos.provincias[1].nombre);
+	 //cargaProvincias();
 
 }
 
-
-
-function meterEnCombo(tipo){
-	var select = document.getElementById(destino);
-	datos.apiGeoref.filter( item => {
-		var option = document.createElement('option');
-			option.value = item.id;
-   			option.text = item.nombre;
-    		select.add(option, 0);
-		}
-	);
-};
-
-
-
-
-
-
-
-
-function CargarCombo(destino){
-	var select = document.getElementById(destino);
-	datos.apiGeoref.filter( item => {
-		var option = document.createElement('option');
-			option.value = item.id;
-   			option.text = item.nombre;
-    		select.add(option, 0);
-		}
-	);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-const selectProvincia = id => data.provincias.filter( provincia => provincia.id === id);
-console.log(selectProvincia('14'));
-
-function selectProvincia(id) {
-  const prov = data.provincias.filter(function(provincia) {
-    if (provincia.id === id) {
-      return provincia;
-    }
-  });
-  return prov;
+function ShowDeptos(provincia){
+	datos.cargarDepartamento(provincia)
 }
-*/
+
+
