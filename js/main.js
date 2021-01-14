@@ -171,17 +171,47 @@ class georef {
 
 	//Carga los departamentos en el arreglo de provincias
 	cargarDepartamento(provincia){
-		let index = this.devolerIndex(provincia)
+		let index = this.devolerIndex(provincia);
+		this.VaciarCombo("departamentos");
+		this.CargarCombo("cargando","departamentos");
+
+		if(!this.provincias[index].hasOwnProperty('departamentos')){
 			fetch("https://apis.datos.gob.ar/georef/api/departamentos?provincia="+provincia+"&max=5000")
-		  		.then(response => response.json())
-		  		.then(jsonResponse =>	{
-						this.provincias[index].departamentos = jsonResponse.departamentos ; 
-						this.VaciarCombo("departamentos");
-						this.CargarCombo(jsonResponse.departamentos,"departamentos")
-					}
-				);
+			.then(response => response.json())
+		  	.then(jsonResponse =>	{
+				this.provincias[index].departamentos = jsonResponse.departamentos ; 
+				console.log(jsonResponse.departamentos);
+				this.VaciarCombo("departamentos");
+				this.CargarCombo(jsonResponse.departamentos,"departamentos");
+				}
+			);
+	  	}else{
+			
+			this.CargarCombo(jsonResponse.departamentos,"departamentos");
+		}
 	}
 	
+
+
+		//llamo a la funcion con el enlace, y le entrego el destino.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	//Devuelve el Index de la Provincia en particular, por ID
 	devolerIndex(id){
@@ -199,14 +229,21 @@ class georef {
 	
 	//carga el combo indicado
 	CargarCombo(lista, id){
+		if (lista === "cargando"){
 		var select = document.getElementById(id);
-		lista.filter( item => {
 			var option = document.createElement('option');
-				option.value = item.id;
-   				option.text = item.nombre;
+				option.value = option.text = "Cargando....";
     			select.add(option, 0);
-			}
-		);
+		}else{
+			var select = document.getElementById(id);
+			lista.filter( item => {
+				var option = document.createElement('option');
+					option.value = item.id;
+   					option.text = item.nombre;
+    				select.add(option, 0);
+				}
+			);
+		}
 	};
 
 	//borra el contenido del combo indicado.
@@ -230,7 +267,7 @@ function prov(dato){
 	//datos.cargarDepartamento("02")
 	//console.log(datos.Provincias());
 	//console.log(datos.provincias[1].nombre);
-	 //cargaProvincias();
+	//cargaProvincias();
 
 }
 
@@ -239,3 +276,25 @@ function ShowDeptos(provincia){
 }
 
 
+
+
+
+
+
+
+
+function saludar(nombre) {
+  alert('Hola ' + nombre);
+}
+
+function saludo2(nombre) {
+  alert('chau ' + nombre);
+}
+
+function procesarEntradaUsuario(callback) {
+  var nombre = prompt('Por favor ingresa tu nombre.');
+  callback(nombre);
+}
+
+procesarEntradaUsuario(saludar);
+procesarEntradaUsuario(saludo2);
