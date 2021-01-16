@@ -63,7 +63,7 @@ class georef {
 
 
 	//Carga los departamentos en el arreglo de provincias
-	cargarDepartamento(provincia){
+	cargarDepartamento(provincia,accion){
 		let index = this.devolerIndex(provincia);
 		this.VaciarCombo("departamentos");
 		this.CargarCombo("cargando","departamentos");
@@ -80,6 +80,7 @@ class georef {
 				this.acciones(temp);
 				//this.VaciarCombo("departamentos");
 				//this.CargarCombo(jsonResponse.departamentos,"departamentos");
+				
 				}
 			);
 	  	}else{
@@ -89,7 +90,7 @@ class georef {
 	}
 	
 
-acciones(listado){
+const realizar = function (listado){
 	this.VaciarCombo("departamentos");
 	console.log(listado)
 	this.CargarCombo(listado,"departamentos")

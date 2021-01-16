@@ -1,0 +1,52 @@
+const productos = [{
+	//Milanesas
+			"codigo":"M001",
+			"familia":"milanesa",
+			"variedad":"peceto",
+			"nombre":"milanesa de peceto",
+			"precio":150,
+			"texto" : "Preparadas con rebozador de primera calidad, con un toque de avena",
+			"img" : "images/productos/mila_peceto_cruda.png",
+		},{
+			"codigo":"M002",
+			"familia":"milanesa",
+			"variedad":"pollo",
+			"nombre":"milanesa de pollo",
+			"precio":150,
+			"texto" : "Pechugas frescas, condimentos de calidad, con el mismo toque de avena",
+			"img" : "images/productos/mila_pollo_cruda.png",
+		},{
+			"codigo":"M003",
+			"familia":"milanesa",
+			"variedad":"berenjena",
+			"nombre":"milanesa de berenjena",
+			"precio":150,
+			"texto" : "Una opci&oacute;n de milanesas basadas en vegetales, por lo que podr&iacute;amos decir que son vegetarianas y saludables",
+			"img" : "images/productos/mila_berenjena_cruda.png",
+		},{
+			"codigo":"M004",
+			"familia":"milanesa",
+			"variedad":"calabaza",
+			"nombre":"milanesa de calabaza",
+			"precio":150,
+			"texto" : "Animate a probarlas, son una delicia, nos las pidi&oacute; una vez una clienta y las empezamos a hacer a pedido. La verdad una sorpresa!",
+			"img" : "images/productos/mila_calabaza_cocida.png",
+		},
+		//Hamburguesas
+		{
+			"codigo":"H001",
+			"familia":"Hamburguesa",
+			"variedad":"Carne",
+			"nombre":"Hamburguesa de Carne",
+			"precio":150,
+			"texto" : "Qu&eacute; se puede decir? Cl&aacute;sicas hamburguesas de carne condimentadas como en casa",
+			"img" :"images/productos/ham_carne_cruda.png"
+		},{
+			"codigo":"H002",
+			"familia":"Hamburguesa",
+			"variedad":"Cerdo",
+			"nombre":"Hamburguesa de Cerdo",
+			"precio":150,
+			"texto" : "Me qued&eacute; completamente sin palabraws, pero te puedo decir que estan b&aacute;rbaras",
+			"img" :"images/productos/ham_cerdo_cruda.png"
+		}]
