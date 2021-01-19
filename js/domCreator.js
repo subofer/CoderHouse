@@ -13,9 +13,19 @@ function Tarjeta(elemento){
 	}else{return ""}
 }
 
-//console.log(productos);
+productos.forEach(familia =>{
+	console.log(familia.productos.length)
+	familia.productos.forEach(
+		producto => tarjetas.innerHTML +=Tarjeta(producto)
+		)
+	}
+)
 
-productos.forEach(producto =>  tarjetas.innerHTML +=Tarjeta(producto))
+
+
+
+
+
 
 
 
