@@ -1,5 +1,7 @@
 let tarjetas = document.getElementById("lista_productos")
+
 function Tarjeta(elemento){
+	if (elemento.mostrar===true){
 	return `<div class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
 				<div id="${elemento.familia}_"${elemento.variedad} class="card mt-3">
 					<img class="card-img-top" src="${elemento.img}" alt="${elemento.nombre}">
@@ -8,11 +10,17 @@ function Tarjeta(elemento){
 					</div>
 				</div>
 			</div>`
+	}else{return ""}
 }
 
-console.log(productos);
+//console.log(productos);
+
 productos.forEach(producto =>  tarjetas.innerHTML +=Tarjeta(producto))
 
 
 
-//productos.forEach(producto => producto.producto.forEach(sub_producto => tarjetas.innerHTML +=Tarjeta(sub_producto)))
+
+
+
+
+
