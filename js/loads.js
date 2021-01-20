@@ -1,9 +1,16 @@
-
 /*Carga la Url segun el # y mantiene la pagina en refresh */
 var url_actual = window.location.href.split('#')[1];
+var url_local = leeLocal("url")
 
+//Navega a la pagina utilizando el # de la barra
 if (url_actual) {
     cargar_contenido(url_actual);
+
+//Retoma la ultima pagina navegada, guardada en el local storage
+}else if(url_local){
+   cargar_contenido(url_local);
+
+//Carga el home por defecto
 }else{
     //Contenido por defecto, Home.
     cargar_contenido('home')
@@ -13,51 +20,41 @@ if (url_actual) {
 //Carga el contenido en el Main, cambia la tag de descipción, el titulo de la pagina y centra el contenido en pantalla.
 function cargar_contenido(destino){
     //remueve la clase activo de todos los elementos
-    Array.from(document.getElementsByClassName('activo')).forEach((el) => el.classList.remove('activo'));
+    Array.from(document.getElementsByClassName('activo')).forEach(el => el.classList.remove('activo'));
     
     //carga el contenido elegido
-    $("#contenido").load( "pages/" + destino + ".html" );
+    $("#contenido").load(`pages/${destino}.html`);
+    //Guarda la pagina actual en el local Storage
+    guardaLocal("url", destino);
     
     //coloca la clase activo
     $(".link-"+ destino).addClass("activo");
     
     //seleccion de descripciones segun contenido.
-    var titulo_ = 'La Cocina de la Pipi'
-    document.title = destino.charAt(0).toUpperCase() + destino.slice(1) + " - " + titulo_;
-    var palabras_clave ="";    
-    switch (destino) {
-       case 'precios':
-           palabras_clave ='Lista de productos y sus precios';
-        break;
-       case 'productos':
-           palabras_clave ='Fotos de nuestros productos, para que se te haga agua la boca';
-        break;
-       case 'recetas':
-           palabras_clave ='Algunas recetas para tus milanesas';
-        break;
-       case 'contacto':
-           palabras_clave ='Contactanos para hacer tu pedido, te lo llevamos o podes pasarlo a buscar';
-        break;
-       default:
-           //contenido por defecto, home.
-           palabras_clave ='Las milanesas y hamburguesas mas ricas de Pilar, congeladas y listas para el horno';
-           document.title = 'La cocina de la Pipi'
-       };
+    document.title = `${mayuscula(pages[destino].titulo)} La Cocina de la Pipi`;
     
     //Cambia las descripciones de la pagina
-    document.getElementsByTagName('meta')["description"].content = palabras_clave;
+    document.getElementsByTagName('meta')["description"].content = pages[destino].keys;
 
     //centra la vista en el contenido cargado
-    document.getElementById("barra_nav").scrollIntoView({block: "start", behavior: "smooth"});
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("barra_nav").scrollIntoView({block: "start", behavior: "smooth"});
+  });
+    
 }; 
 
 
+//Pasa la primer letra de un string a Mayuscula
+function mayuscula(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+} 
 
+//Guarda en el local storage
+function guardaLocal(nombre, cadena){
+  window.localStorage.setItem(nombre, JSON.stringify(cadena))
+}
 
-
-
-
-
-  
-  
-  
+//lee del local storage
+function leeLocal(nombre){
+  return JSON.parse(window.localStorage.getItem(nombre))
+}

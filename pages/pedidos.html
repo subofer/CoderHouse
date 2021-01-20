@@ -1,0 +1,46 @@
+<!--script defer type="text/javascript" src="./js/productos.js"></script>
+<script defer type="text/javascript" src="./js/pedido.js"></script>
+<script defer type="text/javascript" src="./js/main.js"></script--
+
+<script defer type="text/javascript" src="./js/georef2.js"></script>-->
+
+
+<div class="row justify-content-center py-3">   
+     <div class="col-12 pb-4">
+            <h1>Contactate con nosotros o hac&eacute; tu pedido</h1>
+    </div>
+    <div class="col-10">  
+        <section> <!-- Mapa de google Maps -->
+            <div> 
+                <p>Pod&eacute;s pasar a retirar, te lo llevamos o vemos como hacemos, la idea es comer milanesas. </p>
+            </div>
+           
+        </section>
+    </div>
+
+    <div class="col-12">  </div> 
+
+    <div class="col-10 col-lg-8">  
+        <div id="listaProducto"></div>
+    </div>    
+    
+    <div class="col-10 col-lg-8">  
+        <form action="https://wa.me/5491122100001" target="_blank">
+            <div class="form-group">
+               <div class="botones btn-toolbar">
+                    <!--<input type="submit" value="Enviar">-->
+                    <input onclick="()" value="Enviar">
+                    <input type="reset" value="Borrar" onclick="Mostrargeo()">
+
+                    <input type="reset" value="provincia" onclick="prov('14')">
+
+                        <select id="provincias" name="provincias"></select>
+                        
+                        <select id="departamentos" name="departamentos">
+                            <option >Seleccione una provincia</option>
+                        </select>
+
+                </div>
+            </div>
+        </form>
+</div>
