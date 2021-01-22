@@ -5,14 +5,20 @@ class pedido {
 		this.envio = 0;
 	}
 
-	addItem(item){
-		this.cart.push(item);
+	addItem(item,cantidad){
+		this.cart.push({item, cantidad:cantidad});
+		console.log(this.cart)
 	}
 
 	removeItem(item_a_remover){
 		this.cart = this.cart.filter(
 			carro => carro != item_a_remover
 			);
+	}
+
+	borrarCarro(){
+		this.cart = [];
+		this.total = 0;
 	}
 
 	setDestino(destino){
@@ -27,23 +33,27 @@ class pedido {
 	SetTotal(total){
 		this.total = total;
 	}
+	addParcial(parcial){
+		this.total += parcial
+	}
 
 	ShowTotal(){
+		this.CalcularTotal()
 		return this.total;
 	}
 
 	CalcularTotal(){
-		let parcial = 0;
-		
-		this.cart.forEach(function(item){
-			parcial += item.getPrecioTotal();
+		this.total = 0;
+		this.cart.forEach(item => {
+			this.total += item.item.precio;
 		});
-			
-		this.SetTotal(parcial + this.getEnvio());
-		this.ShowTotal();
+		
 	}
 
 	getEnvio(){
 		return this.envio;
 	} 
 }
+
+
+let carro = new pedido();

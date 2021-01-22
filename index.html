@@ -25,6 +25,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="./resources/json/productos.json"></script>
     <script defer type="text/javascript" src="./js/productos.js"></script>
+    <script defer type="text/javascript" src="./js/pedido.js"></script>
+
+
+
 </head>
 
 <body class="container-fluid pl-0 pr-0 mx-0 no-gutters"> 
@@ -152,10 +156,11 @@
                                 <p>Ingres&aacute; el pedido y toc&aacute; en enviar para mandarlo por WhatsApp</p>
                                 <form action="https://wa.me/5491122100001" target="_blank">
                                     <div class="form-group">
+                                        <label id="total_pedido"></label>
                                         <textarea class="form-control"  id="text" name="text" rows="5" placeholder="Ingrese su Pedido"></textarea>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="reset" onclick="borrarCarro()" class="btn btn-secondary">Borrar</button>
+                                        <button type="reset" onclick="carro.borrarCarro()" class="btn btn-secondary">Borrar</button>
                                         <button type="reset" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                         <button type="submit button" value="Enviar" class="btn btn-primary">Enviar</button>
                                     </div>

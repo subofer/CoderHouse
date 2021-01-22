@@ -79,13 +79,13 @@ class Productos {
   MakeTarjeta(elemento){
     let respuesta=
               `<div class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
-                <div id="${elemento.familia}_"${elemento.variedad} class="card mt-3">
+                <div id="${elemento.familia}_${elemento.variedad}" class="card mt-3">
                   <img class="card-img-top" src="${elemento.img}" alt="${elemento.nombre}">
                   <div class="card-body">
-                    <input type="number"><br>
                     <h5 class="card-title">${elemento.nombre}</h5>
                     <p class="card-text">${elemento.texto}</p>
                     <button class="botonCompra" data-familia="${elemento.familia}" data-id="${elemento.codigo}" type="button">Agregar al carrito</button>
+                    <input id="cantidad_${elemento.codigo}" type="number" value=1></input><br>
                   </div>
                 </div>
               </div>`
