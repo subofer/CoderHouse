@@ -7,8 +7,6 @@ const pages = {
 }
 
 const productos = [{
-	"tipo":"milanesas",
-	"productos":[{
 		"codigo":"M001",
 		"familia":"milanesas",
 		"variedad":"peceto",
@@ -62,11 +60,7 @@ const productos = [{
 		"texto" : "Animate a probarlas, son una delicia, nos las pidi&oacute; una vez una clienta y las empezamos a hacer a pedido. La verdad una sorpresa!",
 		"img" : "images/productos/mila_zucchini_cruda.png",
 		"mostrar" : true,
-	}]
-},{
-		//Hamburguesas
-	"tipo":"hamburguesas",
-	"productos":[{
+	},{
 		"codigo":"H001",
 		"familia":"Hamburguesas",
 		"variedad":"Carne",
@@ -112,4 +106,3 @@ const productos = [{
 		"img" :"images/productos/ham_remolacha_cruda.png",
 		"mostrar" : true,
 	}]
-}]

@@ -68,7 +68,6 @@ table, .card, #calesita {
   box-shadow: 0 0 10px 5px white; }
 
 .card:hover {
-  transform: scale(1.05);
   z-index: 9999; }
 
 .porta_footer {

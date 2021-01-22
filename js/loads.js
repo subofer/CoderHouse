@@ -49,12 +49,25 @@ function mayuscula(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 } 
 
-//Guarda en el local storage
-function guardaLocal(nombre, cadena){
-  window.localStorage.setItem(nombre, JSON.stringify(cadena))
-}
+  //Guarda en el local storage
+function guardaLocal(key, valor){
+      window.localStorage.setItem(key, JSON.stringify(valor))
+  }
 
 //lee del local storage
-function leeLocal(nombre){
-  return JSON.parse(window.localStorage.getItem(nombre))
-}
+function leeLocal(key){
+      JSON.parse(window.localStorage.getItem(key))
+  }
+
+function borraLocal(key){
+      window.localStorage.removeItem(key)
+  }
+
+
+
+
+
+
+
+
+

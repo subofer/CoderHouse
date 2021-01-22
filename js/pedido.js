@@ -1,4 +1,4 @@
-class Pedido {
+class pedido {
 	constructor() {
 		this.cart = [];	
 		this.total = 0;
@@ -46,5 +46,4 @@ class Pedido {
 	getEnvio(){
 		return this.envio;
 	} 
-
 }
