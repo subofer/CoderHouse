@@ -26,5 +26,6 @@ function ModalComplete(){
 	let total = document.getElementById("total_pedido") 
 	total.innerHTML = carro.ShowTotal()
 	formulario.value = "";
+
 	carro.cart.forEach(producto => formulario.value += `(${producto.item.codigo}/${producto.cantidad})` )
 }
