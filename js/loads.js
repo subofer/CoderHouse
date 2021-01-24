@@ -20,10 +20,12 @@ if (url_actual) {
 //Carga el contenido en el Main, cambia la tag de descipción, el titulo de la pagina y centra el contenido en pantalla.
 function cargar_contenido(destino){
     //remueve la clase activo de todos los elementos
-    Array.from(document.getElementsByClassName('activo')).forEach(el => el.classList.remove('activo'));
+    //Array.from(document.getElementsByClassName('activo')).forEach(el => el.classList.remove('activo'));
+    $(".activo").get().forEach(el => el.classList.remove('activo'));
     
     //carga el contenido elegido
     $("#contenido").load(`pages/${destino}.html`);
+
     //Guarda la pagina actual en el local Storage
     guardaLocal("url", destino);
     
@@ -34,13 +36,8 @@ function cargar_contenido(destino){
     document.title = `${mayuscula(pages[destino].titulo)} La Cocina de la Pipi`;
     
     //Cambia las descripciones de la pagina
-    document.getElementsByTagName('meta')["description"].content = pages[destino].keys;
-
-    //centra la vista en el contenido cargado
-    document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById("barra_nav").scrollIntoView({block: "start", behavior: "smooth"});
-  });
-    
+   // document.getElementsByTagName('meta')["description"].content = pages[destino].keys;
+    $("meta[name=description]").attr("content", pages[destino].keys);
 }; 
 
 
@@ -63,11 +60,4 @@ function borraLocal(key){
       window.localStorage.removeItem(key)
   }
 
-
-
-
-
-
-
-
-
+  

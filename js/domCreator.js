@@ -1,19 +1,8 @@
-
-//Completa las tarjetas de productos
-document.getElementById("lista_productos").innerHTML += prod.getTarjetas();
-//asigna el event listener a los botones de las tarjetas
-document.querySelectorAll('.botonCompra').forEach(btnProduct =>  btnProduct.addEventListener('click', onSelectClick))
-
-
-
-
 //Agrega el producto y la cantidad al carrito
-function onSelectClick(event){
+function AgregarProducto(event){
 		var item = prod.porId(event.target.dataset.id)
-		var cantidad = document.getElementById(`cantidad_${item.codigo}`).value
-		var precio = item.precio
+		var cantidad = $(`#cantidad_${item.codigo}`).val()
 		carro.addItem(item,cantidad)
-		carro.addParcial(precio*cantidad)
 }
 
 function borrarCarro(){
@@ -21,11 +10,33 @@ function borrarCarro(){
 }
 
 
-function ModalComplete(){
-	let formulario = document.getElementById("text")
-	let total = document.getElementById("total_pedido") 
-	total.innerHTML = carro.ShowTotal()
-	formulario.value = "";
+// Escucha para el evento de cambios en el carrito
+document.addEventListener('cambios_en_carro', e => {
+	ModalComplete() 
+	PaginaPedidos()
+}, false);
 
-	carro.cart.forEach(producto => formulario.value += `(${producto.item.codigo}/${producto.cantidad})` )
+
+function ModalComplete(){
+	$("#detallepedido").html(carro.tablaPedidos())
+	$("#text").val("")
+	badgeUpdate(carro.cart.length)
+	carro.cart.forEach(producto => $("#text").get(0).value += `(${producto.item.codigo}/${producto.cantidad})`)
+}
+
+function badgeUpdate(cantidad){
+	$("#total_carro_m").html(cantidad)
+	$("#total_carro_d").html(cantidad)
+}
+
+function PaginaPedidos(){
+	$("#listaProducto").html(carro.tablaPedidos())
+}
+
+
+function PaginaProductos(){
+//Completa las tarjetas de productos
+   $("#lista_productos").html(prod.getTarjetas());
+//asigna el event listener a los botones de las tarjetas
+    $('.botonCompra').get().forEach(btn =>  btn.addEventListener('click', AgregarProducto))
 }

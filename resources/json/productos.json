@@ -3,8 +3,18 @@ const pages = {
     "productos"	:{"titulo":"productos -",	"keys":"Fotos de nuestros productos, para que se te haga agua la boca"},
     "recetas"	:{"titulo":"recetas -",		"keys":"Algunas recetas para tus milanesas"},
     "contacto"	:{"titulo":"contacto - ",	"keys":"Contactanos para hacer tu pedido, te lo llevamos o podes pasarlo a buscar"},
-	"home"		:{"titulo":"",				"keys":"Las milanesas y hamburguesas mas ricas de Pilar, congeladas y listas para el horno"}
+	"home"		:{"titulo":"",				"keys":"Las milanesas y hamburguesas mas ricas de Pilar, congeladas y listas para el horno"},
+	"pedidos"	:{"titulo":"Pedidos -",		"keys":"Las milanesas y hamburguesas mas ricas de Pilar, congeladas y listas para el horno"}
 }
+
+const destinos = [
+{
+	"destino":"Argentina",
+	"envio":100
+},{
+	"destino":"resto del mundo",
+	"precio":150}
+]
 
 const productos = [{
 		"codigo":"M001",

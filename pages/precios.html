@@ -1,13 +1,11 @@
-<script defer type="text/javascript" src="./js/precios.js"></script>
-
 <div class="row justify-content-center py-3 mw-100">  
     <div class="col-12 pb-4">
         <h1>Productos y precios</h1>
     </div>
     <div class="col-10">  
             <section id="tabla_precios">
-            <!--Esta seccion se crea programaticamente desde precios.js -->    
-            </section> 
-
+            	<!--Esta seccion se crea programaticamente desde el escript de arriba -->  
+            </section>
+            <script type="text/javascript"> $("#tabla_precios").html(prod.TablaPrecios()) </script> 
     </div>
 </div>

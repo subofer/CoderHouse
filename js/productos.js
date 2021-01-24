@@ -38,6 +38,7 @@ class Productos {
    }
 
   TablaPrecios(){
+
     let tabla = `<table class="table table-hover" id="productos">
                     <thead><tr>
                         <th scope="col" colspan="1">Producto</th>
@@ -77,6 +78,13 @@ class Productos {
   
 
   MakeTarjeta(elemento){
+    let botonPop =`<button data-familia="${elemento.familia}" data-id="${elemento.codigo}"
+                    type="button" class="btn btn-lg btn-danger botonCompra" data-bs-toggle="popover" 
+                    title="Producto agregado" data-bs-content="Se agrego el producto?">Agregar al carrito</button>`
+    
+    let boton = `<button class="botonCompra" data-familia="${elemento.familia}" data-id="${elemento.codigo}" 
+                  type="button">Agregar al carrito</button>`
+    
     let respuesta=
               `<div class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
                 <div id="${elemento.familia}_${elemento.variedad}" class="card mt-3">
@@ -84,14 +92,13 @@ class Productos {
                   <div class="card-body">
                     <h5 class="card-title">${elemento.nombre}</h5>
                     <p class="card-text">${elemento.texto}</p>
-                    <button class="botonCompra" data-familia="${elemento.familia}" data-id="${elemento.codigo}" type="button">Agregar al carrito</button>
-                    <input id="cantidad_${elemento.codigo}" type="number" value=1></input><br>
+                    ${botonPop}
+                    <input class="cantidad_producto" id="cantidad_${elemento.codigo}" type="number" value=1></input>
                   </div>
                 </div>
               </div>`
     return respuesta;
   }
-
 }
 
 let prod = new Productos(productos)
