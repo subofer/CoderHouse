@@ -93,7 +93,7 @@ class Productos {
                     <h5 class="card-title">${elemento.nombre}</h5>
                     <p class="card-text">${elemento.texto}</p>
                     ${botonPop}
-                    <input class="cantidad_producto" id="cantidad_${elemento.codigo}" type="number" value=1></input>
+                    <input class="cantidad_producto" id="cantidad_${elemento.codigo}" type="number" min="0" value=1></input>
                   </div>
                 </div>
               </div>`

@@ -7,6 +7,14 @@ const pages = {
 	"pedidos"	:{"titulo":"Pedidos -",		"keys":"Las milanesas y hamburguesas mas ricas de Pilar, congeladas y listas para el horno"}
 }
 
+const destinos = [
+{
+	"destino":"Argentina",
+	"envio":100
+},{
+	"destino":"resto del mundo",
+	"precio":150}
+]
 
 const productos = [{
 		"codigo":"M001",
@@ -108,12 +116,3 @@ const productos = [{
 		"img" :"images/productos/ham_remolacha_cruda.png",
 		"mostrar" : true,
 	}]
-
-const destinos = [
-{
-	"destino":"Argentina",
-	"envio":100
-},{
-	"destino":"resto del mundo",
-	"precio":150}
-]
