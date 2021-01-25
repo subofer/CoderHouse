@@ -21,7 +21,7 @@ function ModalComplete(){
 //Coloca en el campo de texto el mensaje codificado para enviar por mensaje
 	$("#text").get(0).value= carro.getCodificado()
 //manda a actualizar los badges, tanto para movil como para desktop (esto tengo que cambiar para que sea todo igual)
-	badgeUpdate(carro.getCantidad())
+	badgeUpdate(carro.getCantidadTotal())
 }
 
 function badgeUpdate(cantidad){

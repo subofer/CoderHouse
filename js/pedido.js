@@ -15,9 +15,7 @@ class pedido {
 		this.event = new Event("cambios_en_carro", {bubbles: false, cancelable: true});
 	}
 
-	evento(){
-		document.dispatchEvent(this.event)
-	}
+	evento(){ document.dispatchEvent(this.event) }
 
 	addItem(item,cantidad){
 		var q = parseInt(cantidad,10)
@@ -28,16 +26,19 @@ class pedido {
 	}
 
 	sumarProducto(codigo,n=1){
-		this.cart[this.itemPorCodigo(codigo)].cantidad = this.getCantidadItem(codigo)+n
+		let index = this.indexPorCodigo(codigo) 
+		let cantidad = this.cart[index].cantidad + n
+
+		if (cantidad <=0){
+			this.removeItem(this.cart[index])
+		}else{
+			this.cart[index].cantidad = cantidad			
+		}
 		this.evento()
 	}
 
 	restarProducto(codigo,n=1){
-		this.cart[this.itemPorCodigo(codigo)].cantidad = this.getCantidadItem(codigo)-n
-		if (this.cart[this.itemPorCodigo(codigo)].cantidad <=0){
-			this.removeItem(this.cart[this.itemPorCodigo(codigo)])
-		}
-		this.evento()
+		this.sumarProducto(codigo,-n)
 	}
 
 	setCantidad(item, cantidad){
@@ -46,17 +47,11 @@ class pedido {
 		return ya.existe
 	}
 
-	getCantidadItem(codigo){
-		return this.cart[this.itemPorCodigo(codigo)].cantidad
-	}
-
-	getCantidad(){
+	getCantidadTotal(){
 		let cantidad = 0
 		this.cart.forEach(item => cantidad += item.cantidad)
 		return cantidad
 	}
-
-
 
 	getCodificado(){
 		let codigo = ""
@@ -65,11 +60,11 @@ class pedido {
 	}
 
 	Existe(item){
-		var index = this.cart.findIndex(p => p.item.codigo === item.codigo)
-		return {"index":index,"existe":index !=-1}
+		var index = indexPorCodigo(item.codigo)
+		return {"index":index,"existe":index !=-1, "cantidad":item.cantidad}
 	}
 
-	itemPorCodigo(codigo){
+	indexPorCodigo(codigo){
 		return this.cart.findIndex(p => p.item.codigo === codigo)
 	}
 
@@ -81,6 +76,7 @@ class pedido {
 
 	removeItem(item_a_remover){
 		this.cart = this.cart.filter(carro => carro != item_a_remover)
+		this.evento()
 	}
 
 	setDestino(destino){
@@ -114,8 +110,8 @@ class pedido {
 		this.total = 0;
 		this.cart.forEach(item => {
 			this.addParcial(item.item.precio * item.cantidad)
-		});
-		
+			}
+		);
 	}
 
 	getEnvio(){
@@ -123,7 +119,7 @@ class pedido {
 	} 
 
 	borraItem(item){
-		this.cart.splice(this.itemPorCodigo(item), 1)
+		this.cart.splice(this.indexPorCodigo(item), 1)
 		 this.evento()
 	}
 
