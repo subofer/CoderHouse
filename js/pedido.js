@@ -1,9 +1,17 @@
 class pedido {
 
-	constructor() {
-		this.cart = [];	
-		this.total = 0;
-		this.envio = 0;
+	constructor(pedido) {
+
+		if( pedido!="" ){
+			this.cart  = pedido.cart
+			this.total = pedido.total;
+			this.envio = pedido.envio;
+		}else{
+			this.cart = [];	
+			this.total = 0;
+			this.envio = 0;
+		}
+		
 		this.event = new Event("cambios_en_carro", {bubbles: false, cancelable: true});
 	}
 
@@ -136,4 +144,8 @@ class pedido {
 	}	
 }
 
-let carro = new pedido();
+
+let pedir = leeLocal("carrito")
+    if (pedir.cart.length > 0 && confirm("¿Desea continuar con la compra anterior?")) {} 
+    else {pedir = ""}
+let carro = new pedido(pedir);

@@ -9,7 +9,12 @@ function borrarCarro(){
 	borraLocal("carrito")
 }
 
-
+function updateAll(){
+	badgeUpdate(carro.getCantidad())
+	ModalComplete()
+	PaginaPedidos()
+	PaginaProductos()
+}
 
 function ModalComplete(){
 //Completa el modal del carrito con el listado del pedido
@@ -41,6 +46,9 @@ function PaginaProductos(){
 
 // Escucha para el evento de cambios en el carrito
 document.addEventListener('cambios_en_carro', e => {
-	ModalComplete() 
-	PaginaPedidos()
+	guardaLocal("carrito", carro)
+	updateAll()
+	
 }, false);
+
+updateAll()
