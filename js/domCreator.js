@@ -3,7 +3,10 @@ function AgregarProducto(event){
 		var item = prod.porId(event.target.dataset.id)
 		var cantidad = $(`#cantidad_${item.codigo}`).val()
 		carro.addItem(item,cantidad)
+		guardaLocal("carrito", carro)
 		notificar(item,cantidad)
+		
+   
 }
 
 function borrarCarro(){
@@ -11,7 +14,6 @@ function borrarCarro(){
 }
 
 function updateAll(){
-	guardaLocal("carrito", carro)
 	ModalComplete()
 	PaginaPedidos()
 }
@@ -47,24 +49,19 @@ function PaginaProductos(){
 // Escucha para el evento de cambios en el carrito
 document.addEventListener('cambios_en_carro', e => {
 	updateAll()
-	
 }, false);
 
 
 function notificar(item,cantidad) {
-  $(".notify").toggleClass("active");
+  $(".notify").toggleClass("notificando");
   let palabra = "agrego"
     if(cantidad>1){palabra = "agregaron"}
-  $(".success").attr('data-before',`Se ${palabra} ${cantidad}Kg de ${mayuscula(item.nombre)} al carrito`);
+  	$(".success").attr('data-before',`Se ${palabra} ${cantidad}Kg de ${mayuscula(item.nombre)} al carrito`);
+  	
   setTimeout(function(){
     $(".success").attr('data-before',``);
-    $(".notify").removeClass("active");
-    },2000);
+    $(".notify").removeClass("notificando");
+   },1500);
 };
-
-
-
-
-
 
 updateAll()

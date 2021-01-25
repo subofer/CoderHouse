@@ -20,7 +20,6 @@ if (url_actual) {
 //Carga el contenido en el Main, cambia la tag de descipción, el titulo de la pagina y centra el contenido en pantalla.
 function cargar_contenido(destino){
     //remueve la clase activo de todos los elementos
-    //Array.from(document.getElementsByClassName('activo')).forEach(el => el.classList.remove('activo'));
     $(".activo").get().forEach(el => el.classList.remove('activo'));
     
     //carga el contenido elegido
