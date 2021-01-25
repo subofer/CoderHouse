@@ -146,6 +146,9 @@ class pedido {
 
 
 let pedir = leeLocal("carrito")
-    if (pedir.cart.length > 0 && confirm("¿Desea continuar con la compra anterior?")) {} 
-    else {pedir = ""}
+    if (pedir && pedir.cart.length > 0 && confirm("¿Desea continuar con la compra anterior?")) {} 
+    else {
+    	borraLocal("carrito")
+    	pedir = ""
+	}
 let carro = new pedido(pedir);
