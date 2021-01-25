@@ -59,5 +59,4 @@ function leeLocal(key){
 function borraLocal(key){
       window.localStorage.removeItem(key)
   }
-
   

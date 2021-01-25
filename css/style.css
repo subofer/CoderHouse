@@ -111,10 +111,6 @@ form {
       border: none;
       margin: 3px; }
 
-.cantidad_producto {
-  color: red;
-  dislplay: inline; }
-
 #calesita {
   max-width: 820px; }
   #calesita .carousel-inner {
@@ -233,3 +229,78 @@ form {
       font-size: clamp(13px, 3.4vw, 50px);
       color: #c2bb5f;
       font-family: "Lobster", cursive; } }
+
+.botonera_productos {
+  display: inline-block; }
+  .botonera_productos .number-spinner {
+    max-width: auto;
+    line-height: 40px;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+    border: 2px solid #e2e2e2;
+    overflow: hidden;
+    position: relative;
+    display: table; }
+    .botonera_productos .number-spinner input {
+      height: 40px;
+      max-height: 40px;
+      line-height: 40px;
+      max-width: 100px;
+      font-size: 1.5em;
+      padding: 0;
+      margin: 0;
+      border: none;
+      position: relative;
+      float: left;
+      width: 100%;
+      text-align: center; }
+      .botonera_productos .number-spinner input:focus {
+        outline: none; }
+    .botonera_productos .number-spinner .ns-btna {
+      position: relative;
+      font-size: 0;
+      white-space: nowrap;
+      vertical-align: middle;
+      display: table-cell;
+      cursor: pointer;
+      max-width: 200px; }
+    .botonera_productos .number-spinner .ns-btn {
+      position: relative;
+      font-size: 0;
+      white-space: nowrap;
+      vertical-align: middle;
+      display: table-cell;
+      cursor: pointer; }
+      .botonera_productos .number-spinner .ns-btn a {
+        height: 40px;
+        min-height: 40px;
+        width: 40px;
+        padding: 0;
+        max-width: 40px;
+        line-height: 40px;
+        border-radius: 0;
+        border: none;
+        text-align: center;
+        position: relative;
+        background: #e2e2e2;
+        color: #333;
+        display: inline-block;
+        vertical-align: middle;
+        text-decoration: none; }
+      .botonera_productos .number-spinner .ns-btn .icon-add:after {
+        content: "Agregar";
+        font-size: 20px;
+        line-height: 38px;
+        font-weight: bold;
+        width: 200px; }
+      .botonera_productos .number-spinner .ns-btn .icon-minus:after {
+        content: "\002212";
+        font-size: 35px;
+        line-height: 38px;
+        font-weight: bold; }
+      .botonera_productos .number-spinner .ns-btn .icon-plus:after {
+        content: "\00002B";
+        font-size: 38px;
+        line-height: 35px;
+        font-weight: bold; }

@@ -25,6 +25,18 @@ class pedido {
 		return ya.existe
 	}
 
+	getCantidad(){
+		let cantidad = 0
+		this.cart.forEach(item => cantidad += item.cantidad)
+		return cantidad
+	}
+
+	getCodificado(){
+		let codigo = ""
+		this.cart.forEach(producto => codigo += `(${producto.item.codigo}/${producto.cantidad})`)
+		return codigo
+	}
+
 	Existe(item){
 		var index = this.cart.findIndex(p => p.item.codigo === item.codigo)
 		return {"index":index,"existe":index !=-1}

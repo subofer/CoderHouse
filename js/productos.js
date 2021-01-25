@@ -79,21 +79,29 @@ class Productos {
 
   MakeTarjeta(elemento){
     let botonPop =`<button data-familia="${elemento.familia}" data-id="${elemento.codigo}"
-                    type="button" class="btn btn-lg btn-danger botonCompra" data-bs-toggle="popover" 
-                    title="Producto agregado" data-bs-content="Se agrego el producto?">Agregar al carrito</button>`
+                    type="button" class="btn btn-danger botonCompra">Agregar</button>`
     
-    let boton = `<button class="botonCompra" data-familia="${elemento.familia}" data-id="${elemento.codigo}" 
-                  type="button">Agregar al carrito</button>`
-    
-    let respuesta=
+    let inputSpiner =` <div class="number-spinner">
+                            
+                        <span class="ns-btn">
+                          <a data-dir="dwn"><span class="icon-minus"></span></a>
+                        </span>
+                        <input id="cantidad_${elemento.codigo}" type="text" class="pl-ns-value" value="1" maxlength=2>
+                        <span class="ns-btn">
+                          <a data-dir="up"><span class="icon-plus"></span></a>
+                        </span>
+                          <span class="ns-btna">${botonPop}</span>
+                      </div>`
+
+
+  let respuesta=
               `<div class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
                 <div id="${elemento.familia}_${elemento.variedad}" class="card mt-3">
                   <img class="card-img-top" src="${elemento.img}" alt="${elemento.nombre}">
                   <div class="card-body">
-                    <h5 class="card-title">${elemento.nombre}</h5>
+                    <h5 class="card-title">${mayuscula(elemento.nombre)}</h5>
                     <p class="card-text">${elemento.texto}</p>
-                    ${botonPop}
-                    <input class="cantidad_producto" id="cantidad_${elemento.codigo}" type="number" min="0" value=1></input>
+                    <div class="botonera_productos">${inputSpiner}</div>
                   </div>
                 </div>
               </div>`
@@ -102,6 +110,3 @@ class Productos {
 }
 
 let prod = new Productos(productos)
-
-
-
