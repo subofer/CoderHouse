@@ -3,7 +3,6 @@ function AgregarProducto(event){
 		var item = prod.porId(event.target.dataset.id)
 		var cantidad = $(`#cantidad_${item.codigo}`).val()
 		carro.addItem(item,cantidad)
-		guardaLocal("carrito", carro)
 		notificar(item,cantidad)
 		
    
@@ -48,6 +47,7 @@ function PaginaProductos(){
 
 // Escucha para el evento de cambios en el carrito
 document.addEventListener('cambios_en_carro', e => {
+	guardaLocal("carrito", carro)
 	updateAll()
 }, false);
 
