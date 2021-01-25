@@ -27,10 +27,27 @@ class pedido {
 		this.evento()
 	}
 
+	sumarProducto(codigo,n=1){
+		this.cart[this.itemPorCodigo(codigo)].cantidad = this.getCantidadItem(codigo)+n
+		this.evento()
+	}
+
+	restarProducto(codigo,n=1){
+		this.cart[this.itemPorCodigo(codigo)].cantidad = this.getCantidadItem(codigo)-n
+		if (this.cart[this.itemPorCodigo(codigo)].cantidad <=0){
+			this.removeItem(this.cart[this.itemPorCodigo(codigo)])
+		}
+		this.evento()
+	}
+
 	setCantidad(item, cantidad){
 		var ya = this.Existe(item)
 		if(ya.existe){this.cart[ya.index].cantidad += cantidad}
 		return ya.existe
+	}
+
+	getCantidadItem(codigo){
+		return this.cart[this.itemPorCodigo(codigo)].cantidad
 	}
 
 	getCantidad(){
@@ -38,6 +55,8 @@ class pedido {
 		this.cart.forEach(item => cantidad += item.cantidad)
 		return cantidad
 	}
+
+
 
 	getCodificado(){
 		let codigo = ""
@@ -121,7 +140,11 @@ class pedido {
 	    	this.cart.forEach(producto =>
 				tabla += `<tr>
 	    	    			<td>${mayuscula(producto.item.nombre)}</td> 
-	    	        		<td>${producto.cantidad}Kg</td>
+	    	        		<td>
+	    	        			<button onclick="carro.restarProducto('${producto.item.codigo}')">-</button>
+	    	        				${producto.cantidad}Kg 
+								<button onclick="carro.sumarProducto('${producto.item.codigo}')">+</button>
+	    	        		</td>
 	    	        		<td>${producto.item.precio}$</td>
 	    	        		<td><button onclick="carro.borraItem('${producto.item.codigo}')">X</button></td>
 	    	       		  </tr>`

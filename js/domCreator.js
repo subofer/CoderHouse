@@ -4,8 +4,6 @@ function AgregarProducto(event){
 		var cantidad = $(`#cantidad_${item.codigo}`).val()
 		carro.addItem(item,cantidad)
 		notificar(item,cantidad)
-		
-   
 }
 
 function borrarCarro(){
