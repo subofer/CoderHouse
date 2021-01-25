@@ -23,13 +23,13 @@
     
     <!-- CSS de ajuste-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/notificaciones.css">
     <script type="text/javascript" src="resources/json/pr.js"></script>
 
 
 </head>
 
 <body class="container-fluid pl-0 pr-0 mx-0 no-gutters"> 
-<div id="toast"></div>
     <!--Comienzo del Header -->
     <header class="row pt-2 justify-content-center align-items-center no-gutters">
         <div class="col-2">
@@ -63,8 +63,9 @@
           </div>
         </nav>
     </header>
+          <div class="notify" id="notificacion"><span id="notifyType" class="success"></span></div>
     <!--Fin del Header -->
-    
+            
     <!--Comienzo del Main -->
         <!--Todo el contenido se carga con Load.js -->
         <main id="contenido" class="row justify-content-center py-5"> 
@@ -145,13 +146,10 @@
             -->
 
                 <div id="botoncompra">
-                    
                     <button data-toggle="modal" type="button" class="btn btn-danger btn-lg order_desktop" onclick="ModalComplete()" data-target="#pedido_online" >Carrito <span id="total_carro_d" class="badge bg-secondary">0</span>
                     </button>
-
                     <button data-toggle="modal" type="button" class="btn btn-danger btn-lg order_mobile" onclick="ModalComplete()" data-target="#pedido_online" ><span id="total_carro_m" class="badge bg-secondary">0</span>
                     </button>
-                    
                 </div>
 
             <!-- Modal Pedidos online -->
@@ -165,10 +163,11 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p>Hace tu pedido desde <a href="#productos" onclick="cargar_contenido('productos')">aqui</a>, seleecionando los productos</p>
+                                <p>Hace tu pedido desde <a href="#productos" data-toggle="modal" onclick="cargar_contenido('productos')">aqui</a>, seleecionando los productos</p>
                                 <div id="detallepedido"></div>
                                 <form action="https://wa.me/5491122100001" target="_blank">
                                     <div class="form-group">
+                                        Aquí se completa el mensaje codificado para el comercio.
                                         <textarea class="form-control"  id="text" name="text" rows="1" placeholder=""></textarea>
                                     </div>
                                     <div class="modal-footer">
@@ -205,7 +204,10 @@
     <script defer type="text/javascript" src="./js/pedido.js"></script>
     
 
-    <script defer type="text/javascript" src="./js/domCreator.js"></script>
     
+
+    <script defer type="text/javascript" src="./js/notificaciones.js"></script>
+   
+    <script defer type="text/javascript" src="./js/domCreator.js"></script>
 </body>
 </html>

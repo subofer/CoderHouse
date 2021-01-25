@@ -3,6 +3,7 @@ function AgregarProducto(event){
 		var item = prod.porId(event.target.dataset.id)
 		var cantidad = $(`#cantidad_${item.codigo}`).val()
 		carro.addItem(item,cantidad)
+		notificar(item,cantidad)
 }
 
 function borrarCarro(){
