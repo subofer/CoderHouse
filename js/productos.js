@@ -47,15 +47,17 @@ class Productos {
                     </thead><tbody>`
 
     this.familias.forEach(familia =>{
-        tabla += `<tr><th class="align-middle" scope="row" rowspan=${familia.cantidad}>
+        tabla += `<tr>
+                    <th class="align-middle" scope="row" rowspan=${familia.cantidad}>
                         ${mayuscula(familia.tipo)}
-                  </th></tr>`
+                    </th>
+                  </tr>`
         
-        familia.productos.forEach(
-            producto => tabla += `<tr>
-                                    <td>${mayuscula(producto.variedad)}</td> 
-                                    <td>${producto.precio}$</td>
-                                  </tr>`
+        familia.productos.forEach(producto => 
+          tabla += `<tr>
+                      <td>${mayuscula(producto.variedad)}</td> 
+                      <td>${producto.precio}$</td>
+                    </tr>`
             )
         }
     )
@@ -65,9 +67,8 @@ class Productos {
   //Genera las tarjeas de productos
   getTarjeta(id){
     let item = this.getProductById(id)
-      if (item.mostrar===true){ 
-        return this.MakeTarjeta(item)
-      }
+    if (item.mostrar){return this.MakeTarjeta(item)}
+    else{return ""}
   }
   
   getTarjetas(){
@@ -78,23 +79,20 @@ class Productos {
   
 
   MakeTarjeta(elemento){
-    let botonPop =`<button data-familia="${elemento.familia}" data-id="${elemento.codigo}"
-                    type="button" class="btn btn-danger botonCompra">Agregar</button>`
+    let botonPop =`<span class="ns-btna"><button data-familia="${elemento.familia}" data-id="${elemento.codigo}"
+                    type="button" class="btn btn-danger botonCompra">Agregar</button></span>`
+    
+    let botondw =`<span class="ns-btn"><a data-dir="dwn"><span class="icon-minus"></span></a></span>`
+    
+    let botonUp =`<span class="ns-btn"><a data-dir="up"><span class="icon-plus"></span></a></span>`
     
     let inputSpiner =` <div class="number-spinner">
-                            
-                        <span class="ns-btn">
-                          <a data-dir="dwn"><span class="icon-minus"></span></a>
-                        </span>
+                        ${botondw}
                         <input id="cantidad_${elemento.codigo}" type="text" class="pl-ns-value" value="1" maxlength=2>
-                        <span class="ns-btn">
-                          <a data-dir="up"><span class="icon-plus"></span></a>
-                        </span>
-                          <span class="ns-btna">${botonPop}</span>
+                        ${botonUp}
+                        ${botonPop}
                       </div>`
-
-
-  let respuesta=
+    let respuesta=
               `<div class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
                 <div id="${elemento.familia}_${elemento.variedad}" class="card mt-3">
                   <img class="card-img-top" src="${elemento.img}" alt="${elemento.nombre}">

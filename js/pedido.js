@@ -145,10 +145,11 @@ class pedido {
 }
 
 
+
+//Creo el objeto del pedido y recupero el guardado en el local storage, si existe y si el usuario quiere.
 let pedir = leeLocal("carrito")
     if (pedir && pedir.cart.length > 0 && confirm("¿Desea continuar con la compra anterior?")) {} 
     else {
-    	borraLocal("carrito")
     	pedir = ""
 	}
 let carro = new pedido(pedir);
