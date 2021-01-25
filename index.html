@@ -23,7 +23,6 @@
     
     <!-- CSS de ajuste-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    
     <script type="text/javascript" src="resources/json/pr.js"></script>
 
 
@@ -59,7 +58,7 @@
                 <li class="nav-item"><a href="#precios"   onclick="cargar_contenido('precios')"   class="nav-link link-precios">Precios</a>     </li>
                 <li class="nav-item"><a href="#productos" onclick="cargar_contenido('productos')" class="nav-link link-productos">Productos</a> </li>
                 <li class="nav-item"><a href="#recetas"   onclick="cargar_contenido('recetas')"   class="nav-link link-recetas">Recetas</a>     </li>
-                <li class="nav-item"><a href="#pedidos"  onclick="cargar_contenido('pedidos')"  class="nav-link link-pedidos">Pedidos</a>       </li>
+                <li class="nav-item"><a href="#pedidos"   onclick="cargar_contenido('pedidos')"  class="nav-link link-pedidos">Pedidos</a>       </li>
             </ul>
           </div>
         </nav>
@@ -146,15 +145,13 @@
             -->
 
                 <div id="botoncompra">
-                    <button data-toggle="modal" type="button" class="btn btn-danger btn-lg order_desktop" onclick="ModalComplete()" 
-                            data-target="#pedido_online" >
-                            Carrito <span id="total_carro_d" class="badge bg-secondary">0</span>
+                    
+                    <button data-toggle="modal" type="button" class="btn btn-danger btn-lg order_desktop" onclick="ModalComplete()" data-target="#pedido_online" >Carrito <span id="total_carro_d" class="badge bg-secondary">0</span>
+                    </button>
 
+                    <button data-toggle="modal" type="button" class="btn btn-danger btn-lg order_mobile" onclick="ModalComplete()" data-target="#pedido_online" ><span id="total_carro_m" class="badge bg-secondary">0</span>
                     </button>
-                    <button data-toggle="modal" type="button" class="btn btn-danger btn-lg order_mobile" onclick="ModalComplete()" 
-                            data-target="#pedido_online" >
-                            <span id="total_carro_m" class="badge bg-secondary">0</span>
-                    </button>
+                    
                 </div>
 
             <!-- Modal Pedidos online -->

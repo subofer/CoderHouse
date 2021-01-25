@@ -80,7 +80,7 @@ class Productos {
 
   MakeTarjeta(elemento){
     let botonPop =`<span class="ns-btna"><button data-familia="${elemento.familia}" data-id="${elemento.codigo}"
-                    type="button" class="btn btn-danger botonCompra">Agregar</button></span>`
+                    type="button" class="btn btn-danger botonCompra">Agregar al carrito</button></span>`
     let botondw =`<span class="ns-btn"><a data-dir="dwn"><span class="icon-minus"></span></a></span>`
     let botonUp =`<span class="ns-btn"><a data-dir="up"><span class="icon-plus"></span></a></span>`
     
