@@ -60,7 +60,7 @@ class pedido {
 	}
 
 	Existe(item){
-		var index = indexPorCodigo(item.codigo)
+		var index = this.indexPorCodigo(item.codigo)
 		return {"index":index,"existe":index !=-1, "cantidad":item.cantidad}
 	}
 
@@ -136,11 +136,13 @@ class pedido {
 	    	this.cart.forEach(producto =>
 				tabla += `<tr>
 	    	    			<td>${mayuscula(producto.item.nombre)}</td> 
-	    	        		<td>
-	    	        			<button onclick="carro.restarProducto('${producto.item.codigo}')">-</button>
-	    	        				${producto.cantidad}Kg 
-								<button onclick="carro.sumarProducto('${producto.item.codigo}')">+</button>
+	    	        		
+	    	        		<td class="cantidad_unidades">
+	    	        			<button class="boton_menos" onclick="carro.restarProducto('${producto.item.codigo}')"></button>
+	    	        			${producto.cantidad}Kg
+	    	        			<button class="boton_mas" onclick="carro.sumarProducto('${producto.item.codigo}')"></button>
 	    	        		</td>
+	    	        		
 	    	        		<td>${producto.item.precio}$</td>
 	    	        		<td><button onclick="carro.borraItem('${producto.item.codigo}')">X</button></td>
 	    	       		  </tr>`
@@ -167,8 +169,12 @@ class pedido {
 
 //Creo el objeto del pedido y recupero el guardado en el local storage, si existe y si el usuario quiere.
 let pedir = leeLocal("carrito")
-    if (pedir && pedir.cart.length > 0 && confirm("¿Desea continuar con la compra anterior?")) {} 
+ /*
+ if (pedir && pedir.cart.length > 0 && confirm("¿Desea continuar con la compra anterior?")) {} 
     else {
     	pedir = ""
 	}
+*/
+
+
 let carro = new pedido(pedir);
