@@ -52,7 +52,12 @@ function guardaLocal(key, valor){
 
 //lee del local storage
 function leeLocal(key){
-    return  JSON.parse(window.localStorage.getItem(key))
+  let valor = window.localStorage.getItem(key)
+      if (valor === null){
+        return ""
+      }else{
+        return  JSON.parse(valor)
+      }
   }
 
 function borraLocal(key){

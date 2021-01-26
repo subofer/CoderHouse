@@ -2,7 +2,7 @@ class pedido {
 
 	constructor(pedido) {
 
-		if( pedido!="" ){
+		if( pedido!="" || pedido.cart==[]){
 			this.cart  = pedido.cart
 			this.total = pedido.total;
 			this.envio = pedido.envio;
