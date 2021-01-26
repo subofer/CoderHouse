@@ -2,7 +2,7 @@ class pedido {
 
 	constructor(pedido) {
 
-		if( pedido!="" || pedido.cart==[]){
+		if( pedido!=""){
 			this.cart  = pedido.cart
 			this.total = pedido.total;
 			this.envio = pedido.envio;
@@ -13,6 +13,7 @@ class pedido {
 		}
 		
 		this.event = new Event("cambios_en_carro", {bubbles: false, cancelable: true});
+
 	}
 
 	evento(){ document.dispatchEvent(this.event) }
