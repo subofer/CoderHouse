@@ -3,7 +3,10 @@ function AgregarProducto(event){
 		var item = prod.porId(event.target.dataset.id)
 		var cantidad = $(`#cantidad_${item.codigo}`).val()
 		carro.addItem(item,cantidad)
-		notificar(item,cantidad)
+		//notificar(item,cantidad)
+
+		//probando notificaciones que se muevan y se borren suave.
+		Notificacion(notificar(item,cantidad))
 }
 
 function borrarCarro(){
@@ -53,13 +56,16 @@ document.addEventListener('cambios_en_carro', e => {
 function notificar(item,cantidad) {
   $(".notify").toggleClass("notificando");
   let palabra = "agrego"
+  let mensaje = ""
     if(cantidad>1){palabra = "agregaron"}
-  	$(".success").attr('data-before',`Se ${palabra} ${cantidad}Kg de ${mayuscula(item.nombre)} al carrito`);
-  	
+    	mensaje = `Se ${palabra} ${cantidad}Kg de ${mayuscula(item.nombre)} al carrito`
+  	$(".success").attr('data-before',mensaje);
+	
   setTimeout(function(){
     $(".success").attr('data-before',``);
     $(".notify").removeClass("notificando");
    },1500);
+  return mensaje
 };
 
 updateAll()

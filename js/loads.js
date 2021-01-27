@@ -56,7 +56,7 @@ function leeLocal(key){
       if (valor === null){
         return ""
       }else{
-        return  JSON.parse(valor)
+        return JSON.parse(valor)
       }
   }
 
