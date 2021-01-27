@@ -13,7 +13,8 @@ lista_notificaciones.each( index => {
 });
 
 let style = `
-	position: absolute;
+	position: relative;
+	position: fixed;
 	top: ${top}px;
 	left: 50px;
 	width: auto;
