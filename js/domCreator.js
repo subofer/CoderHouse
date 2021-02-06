@@ -3,7 +3,6 @@ function AgregarProducto(event){
 		var item = prod.porId(event.target.dataset.id)
 		var cantidad = $(`#cantidad_${item.codigo}`).val()
 		carro.addItem(item,cantidad)
-		//notificar(item,cantidad)
 
 		//probando notificaciones que se muevan y se borren suave.
 		Notificacion(notificar(item,cantidad))
@@ -29,36 +28,64 @@ function ModalComplete(){
 
 function badgeUpdate(cantidad){
 //Actualiza el numero del badge del "carrito"
-	$("#total_carro_m").html(cantidad)
-	$("#total_carro_d").html(cantidad)
+	$("#total_carro_m, #total_carro_d").html(cantidad)
 }
 
-function PaginaPedidos(){
 //Completa la tabla del pedido
+function PaginaPedidos(){
 	$("#listaProducto").html(carro.tablaPedidos())
 }
 
-function PaginaProductos(){
 //Completa las tarjetas de productos
-   $("#lista_productos").html(prod.getTarjetas());
-//asigna el event listener a los botones de las tarjetas
-    $('.botonCompra').get().forEach(btn =>  btn.addEventListener('click', AgregarProducto))
-    $('.agregar').get().forEach(btn =>  btn.addEventListener('click', AgregarProducto))
+function PaginaProductos(){
+   $("#lista_productos").html("");
+  
+      $("#lista_productos").append(prod.getTarjetas());
+
+//asigna el event listener a los botones de las tarjetas, Jquery
+    $('.botonCompra, .agregar').click(AgregarProducto)
+
+    var numberSpinner = (function() {
+  $('.number-spinner>.ns-btn>a').click(function() {
+    var btn = $(this),
+      oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+      newVal = 0;
+
+    if (btn.attr('data-dir') === 'up') {
+      newVal = parseInt(oldValue) + 1;
+    } else {
+      if (oldValue > 1) {
+        newVal = parseInt(oldValue) - 1;
+      } else {
+        newVal = 1;
+      }
+    }
+    btn.closest('.number-spinner').find('input').val(newVal);
+  });
+  $('.number-spinner>input').keypress(function(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  });
+})();
+
 }
 
 // Escucha para el evento de cambios en el carrito
-document.addEventListener('cambios_en_carro', e => {
+$(document).on( "cambios_en_carro", (e) => {
 	guardaLocal("carrito", carro)
 	updateAll()
-}, false);
-
+})
 
 function notificar(item,cantidad) {
   $(".notify").toggleClass("notificando");
   let palabra = "agrego"
   let mensaje = ""
     if(cantidad>1){palabra = "agregaron"}
-    	mensaje = `Se ${palabra} ${cantidad}Kg de ${mayuscula(item.nombre)} al carrito`
+    	mensaje = `Se ${palabra} ${cantidad}Kg de ${mayuscula(item.nombre)}`
   	$(".success").attr('data-before',mensaje);
 	
   setTimeout(function(){

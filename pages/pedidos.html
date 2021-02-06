@@ -1,8 +1,7 @@
-<!--
 
-    <script defer type="text/javascript" src="./js/georef2.js"></script>
 
--->
+
+
 
 <div class="row justify-content-center py-3">   
      <div class="col-12 pb-4">
@@ -24,6 +23,84 @@
     </div>    
 
     <div class="col-10 col-lg-8">  
+
+        formulario para ingresar datos personales.
+
+
+
+<form>
+
+    <div class="form-group"> <!-- Full Name -->
+        <label for="full_name_id" class="control-label">Full Name</label>
+        <input type="text" class="form-control" id="full_name_id" name="full_name" placeholder="John Deer">
+    </div>    
+
+    <div class="form-group"> <!-- Street 1 -->
+        <label for="street1_id" class="control-label">Street Address 1</label>
+        <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Street address, P.O. box, company name, c/o">
+    </div>                    
+                            
+    <div class="form-group"> <!-- City-->
+        <label for="city_id" class="control-label">City</label>
+        <input type="text" class="form-control" id="city_id" name="city" placeholder="Smallville">
+    </div>                                    
+                            
+<div class="form-group"> <!-- State Button -->    
+
+    <div class="form-group"> <!-- State Button -->
+        <label for="state_id" class="control-label">Selecciona tu Provincia</label>
+        <select class="form-control" id="provincia_id">
+            <option value="AL">Conectando al servicio remoto...</option>
+        </select>                    
+    </div>
+    
+    <div class="form-group"> <!-- State Button -->
+        <label for="state_id" class="control-label">Selecciona tu Localidad</label>
+        <select class="form-control" id="localidad_id">
+            <option value="AL">Conectando al servicio remoto...</option>
+        </select>                    
+    </div>
+
+</div>
+
+    <div class="form-group"> <!-- Zip Code-->
+        <label for="zip_id" class="control-label">Zip Code</label>
+        <input type="text" class="form-control" id="zip_id" name="zip" placeholder="#####">
+    </div>        
+    
+    <div class="form-group"> <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Pedir</button>
+        <button type="submit" class="btn btn-secondary">Eliminar pedido</button>
+    </div>     
+    
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <form action="https://wa.me/5491122100001" target="_blank">
             <div class="form-group">
                <div class="botones btn-toolbar">
@@ -44,4 +121,6 @@
         </form>
     </div>
 
+
 <script type="text/javascript">PaginaPedidos()</script>
+<script defer type="text/javascript" src="./js/georef.js"></script>

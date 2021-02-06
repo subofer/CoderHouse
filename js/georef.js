@@ -43,183 +43,104 @@
 
 class georef {
 	//el constructor obtiene la lista de provincias.
-	constructor(){
-		const masterUrl = "https://apis.datos.gob.ar/georef/api/provincias?orden=id";
-		this.apiGeoref;
-		fetch(masterUrl)
-		  .then(response => response.json())
-		  .then(jsonResponse =>	{
-		  	this.apiGeoref = jsonResponse;
-		  	this.provincias = jsonResponse.provincias;
-
-		  	console.log(this.apiGeoref["provincias"]);
-		  	this.CargarCombo(this.provincias,"provincias");
-		  	this.AjustarCombo();
-		  })
+	constructor(c_provincias, c_localidades){
+		this.url = "https://apis.datos.gob.ar/georef/api/"
+		this.georef=[];
+		this.provincias=[];
+		this.combo= []
+		this.combo.localidades = $(`#${c_localidades}`)
+		this.combo.provincias  = $(`#${c_provincias}`)
 	}
 
-
-
-
-
-	//Carga los departamentos en el arreglo de provincias
-	cargarDepartamento(provincia,accion){
-		let index = this.devolerIndex(provincia);
-		this.VaciarCombo("departamentos");
-		this.CargarCombo("cargando","departamentos");
-
-		if(!this.provincias[index].hasOwnProperty('departamentos')){
-			fetch("https://apis.datos.gob.ar/georef/api/departamentos?provincia="+provincia+"&max=5000")
-			.then(response => response.json())
-		  	.then(jsonResponse =>	{
-				this.provincias[index].departamentos = jsonResponse.departamentos ; 
-				console.log(jsonResponse.departamentos);
-				let temp = this.provincias[index].departamentos;
-
-
-				this.acciones(temp);
-				//this.VaciarCombo("departamentos");
-				//this.CargarCombo(jsonResponse.departamentos,"departamentos");
-				
-				}
-			);
-	  	}else{
-			this.acciones(jsonResponse.departamentos);
-			//this.CargarCombo(jsonResponse.departamentos,"departamentos");
-		}
-	}
-	
-
-const realizar = function (listado){
-	this.VaciarCombo("departamentos");
-	console.log(listado)
-	this.CargarCombo(listado,"departamentos")
-}
-
-		//llamo a la funcion con el enlace, y le entrego el destino.
-
-
-acargarDepartamento(callback,provincia){
-
-	let index = this.devolerIndex(provincia);
-	console.log("index ->" + index);
-		this.VaciarCombo("departamentos");
-		this.CargarCombo("cargando","departamentos");
-
-			fetch("https://apis.datos.gob.ar/georef/api/departamentos?provincia="+provincia+"&max=5000")
-			.then(response => response.json())
-		  	.then(jsonResponse =>	{
-				this.provincias[index].departamentos = jsonResponse.departamentos ; 
-				console.log("aca");
-				console.log(jsonResponse.departamentos);
-				callback(jsonResponse.departamentos);
-				}
-			);
-
-}
-
-
-
-
-	//Devuelve el Index de la Provincia en particular, por ID
-	devolerIndex(id){
-		return this.provincias.findIndex(prov=> prov.id === id);
-	}
-
-	//Carga todos los departamentos, falla por limite en la Api !No usar por ahora.
-	cargarDepartamentos(){
-		this.apiGeoref.filter( provincia => this.cargarDepartamento(provincia.id));
-	}
-
-	Provincia(codigo){
-		return this.provincias.filter( provincia => provincia.id === codigo)[0];
-	}
-	
-	//carga el combo indicado
-	CargarCombo(lista, id){
-		if (lista === "cargando"){
-		var select = document.getElementById(id);
-			var option = document.createElement('option');
-				option.value = option.text = "Cargando....";
-    			select.add(option, 0);
-		}else{
-			var select = document.getElementById(id);
-			lista.filter( item => {
-				var option = document.createElement('option');
-					option.value = item.id;
-   					option.text = item.nombre;
-    				select.add(option, 0);
-				}
-			);
-		}
-	};
-
-	//borra el contenido del combo indicado.
-	VaciarCombo(id, vaciar = true){
-		if (vaciar){document.getElementById(id).innerHTML = ""};
-	}
-
-	AjustarCombo(){
-		//document.getElementById("provincias").setAttribute("onchange", "ShowDeptos(datos.acciones(),this.value);");
-		document.getElementById("provincias").setAttribute("onchange", "ShowDeptos(this.value);");
-	}
-
-
-
-
-
-};
-
-
-
-
-
-let datos = new georef();
-
-
-
-function prov(dato){
-	console.log(datos.provincias);
-	//console.log(datos);
-	//datos.cargarDepartamento("02")
-	//console.log(datos.Provincias());
-	//console.log(datos.provincias[1].nombre);
-	//cargaProvincias();
-
-}
-
-function ShowDeptos(provincia){
-	datos.cargarDepartamento(provincia)
-}
-
-
-/*
-datos.cargar(provincias())
-datos.cargar(departamentos(provincia))
-
-
-
-
-
-
-	cargar(quecargar,dondecargar,url){
-		const masterUrl = "https://apis.datos.gob.ar/georef/api/provincias?orden=id";
-		this.apiGeoref;
+	GetJson(url, callback, combo ,key){
 		fetch(url)
 		  .then(response => response.json())
 		  .then(jsonResponse =>	{
-		  	this.apiGeoref = jsonResponse;
-		  	this.provincias = jsonResponse.provincias;
-		  	this.CargarCombo(this.provincias,"provincias");
-		  	document.getElementById("provincias").setAttribute("onchange", "ShowDeptos(datos.acciones(),this.value);");
+		  	this.georef = jsonResponse;
+		  	callback(jsonResponse,key,combo);
 		  })
 	}
 
+	asignar(valor,key,combo){
+		let texto
+		combo.empty()
+        $.each(valor[key], function(i, el){
+		  texto = mayuscula(el.nombre)
+          combo.append( new Option(texto,texto));
+        });
+	}
+
+	SetProvincias(){
+		this.GetJson(`${this.url}provincias?orden=id`, this.asignar, this.combo.provincias, "provincias")
+		this.combo.provincias.change( () => { this.SetLocalidades( this.combo.provincias.val() ) } );
+	}	
+
+	SetLocalidades(provincia){
+		this.GetJson(`${this.url}localidades?provincia=${provincia}&max=5000`, this.asignar,  this.combo.localidades, "localidades")
+	}
+
+	devolerIndex(id){
+		return this.georef.provincias.findIndex(prov=> prov.id === id);
+	}
+
+	provincias(objeto) {
+		this.georef.provincias = objeto.provincias;
+		//console.log(objeto.provincias);
+	}
+
+
+	localidades(objeto) {
+		//console.log(objeto.localidades);
+		let pepe = objeto.localidades[0].provincia.id;
+		//console.log("id -->" + pepe);
+		let index = this.devolerIndex(pepe);
+		//console.log(index);
+		//this.GeoRef.provincias[1].localidades = objeto.localidades;
+		//console.log(objeto.localidades);
+	}
+
+	getinfo(){
+		return this.georef
+	}
+
+}
+
+
+let datos = new georef("provincia_id","localidad_id");
+
+datos.SetProvincias();
 
 
 
 
-url = "https://apis.datos.gob.ar/georef/api/provincias?orden=id";
-que = "provincias"
-donde ="provincias"
-cargar()*/
+
+
+
+
+
+
+
+/*
+let foo = {	
+	"provincias" : "provincias_id",
+	"localidades":"localidades_id",
+	"calles":"calles_id"}
+
+
+
+
+//setTimeout(() => {  datos.SetLocalidades($('#provincia_id option:selected').text()); }, 500);
+
+
+/*
+
+function agreeting(name) {
+  alert('Hello ' + name);
+}
+
+function processUserInput(callback) {
+  var name = prompt('Please enter your name.');
+  callback(name);
+}
+
+processUserInput(agreeting);*/
