@@ -43,13 +43,16 @@
 
 class georef {
 	//el constructor obtiene la lista de provincias.
-	constructor(c_provincias, c_localidades){
+	constructor(componentes){
+
 		this.url = "https://apis.datos.gob.ar/georef/api/"
 		this.georef=[];
 		this.provincias=[];
 		this.combo= []
-		this.combo.localidades = $(`#${c_localidades}`)
-		this.combo.provincias  = $(`#${c_provincias}`)
+		
+		this.combo.provincias  = $(`#${componentes.c_provincia}`)
+		this.combo.localidades = $(`#${componentes.c_localidad}`)
+
 	}
 
 	GetJson(url, callback, combo ,key){
@@ -62,11 +65,10 @@ class georef {
 	}
 
 	asignar(valor,key,combo){
-		let texto
 		combo.empty()
         $.each(valor[key], function(i, el){
-		  texto = mayuscula(el.nombre)
-          combo.append( new Option(texto,texto));
+		 let texto = mayuscula(el.nombre)
+          combo.append( new Option(texto,el.id));
         });
 	}
 
@@ -76,27 +78,15 @@ class georef {
 	}	
 
 	SetLocalidades(provincia){
-		this.GetJson(`${this.url}localidades?provincia=${provincia}&max=5000`, this.asignar,  this.combo.localidades, "localidades")
+		this.GetJson(`${this.url}localidades?provincia=${provincia}&max=5000&orden=id`, this.asignar,  this.combo.localidades, "localidades")
 	}
 
 	devolerIndex(id){
 		return this.georef.provincias.findIndex(prov=> prov.id === id);
 	}
 
-	provincias(objeto) {
-		this.georef.provincias = objeto.provincias;
-		//console.log(objeto.provincias);
-	}
-
-
 	localidades(objeto) {
-		//console.log(objeto.localidades);
-		let pepe = objeto.localidades[0].provincia.id;
-		//console.log("id -->" + pepe);
-		let index = this.devolerIndex(pepe);
-		//console.log(index);
-		//this.GeoRef.provincias[1].localidades = objeto.localidades;
-		//console.log(objeto.localidades);
+		return this.devolerIndex(objeto.localidades[0].provincia.id);
 	}
 
 	getinfo(){
@@ -106,7 +96,12 @@ class georef {
 }
 
 
-let datos = new georef("provincia_id","localidad_id");
+//La llamada al objeto, es con la lista de los ID de los combos donde se pondran los datos.
+let datos = new georef({
+						"c_provincia":"provincia_id",
+						"c_localidad":"localidad_id",
+					})
+
 
 datos.SetProvincias();
 

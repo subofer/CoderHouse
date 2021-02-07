@@ -87,8 +87,7 @@ class Productos {
     let inputSpiner =`<div class="number-spinner">
                         ${botondw}
                         <input id="cantidad_${elemento.codigo}" type="text" class="pl-ns-value" value="1" maxlength=2>
-                        ${botonUp}
-                        ${botonPop}
+                        ${botonUp} ${botonPop}
                       </div>`
     let respuesta=
               `<div class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">

@@ -80,13 +80,6 @@ function mayuscula(str) {
 } 
 
 //console.log(CargarJson());
-
-
-
-
-
-
-
 function CargarJson() {
  return $.ajax({
       dataType: "json",
@@ -98,7 +91,7 @@ function CargarJson() {
 
 
 //Carga de las provincias con Ajax, luego se pisan con el objeto Georef, pero aca esta cumpliendo con el desafio Ajax.
-provincias()
+//provincias()
 function provincias() {
  return $.ajax({
       dataType: "json",
