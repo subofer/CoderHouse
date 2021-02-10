@@ -1,8 +1,3 @@
-
-
-
-
-
 <div class="row justify-content-center py-3">   
      <div class="col-12 pb-4">
             <h1>Contactate con nosotros o hac&eacute; tu pedido</h1>
@@ -28,7 +23,7 @@
 
 
 
-<form action="https://wa.me/5491122100001" target="_blank">
+<form id="InfoCliente" target="_blank">
 
     <div class="form-group">
         <label for="full_name_id" class="control-label">Full Name</label>
@@ -38,29 +33,28 @@
     <div class="form-group">
         <label for="street1_id" class="control-label">Dirección</label>
         <input type="text" class="form-control" id="street1_id" name="street1" placeholder="Ej: Av. Gaona 2020">
-    </div>                    
-
-<div class="form-group"> 
+    </div>    
 
     <div class="form-group">
-        <label for="state_id" class="control-label">Selecciona tu Provincia</label>
-        <select class="form-control" id="provincia_id">
+        <label for="provincia_id" class="control-label">Selecciona tu Provincia</label>
+        <select class="form-control" id="provincia_id" name="provincia">
             <option value="AL">Conectando al servicio remoto...</option>
         </select>                    
     </div>
-    
+
+
     <div class="form-group">
-        <label for="state_id" class="control-label">Selecciona tu Localidad</label>
-        <select class="form-control" id="localidad_id">
+        <label for="localidad_id" class="control-label">Selecciona tu Localidad</label>
+        <select class="form-control" id="localidad_id" name="localidad">
             <option value="AL">Primero seleccione una provincia</option>
         </select>                    
     </div>
 
-</div>
+
 
     <div class="form-group">
-        <button onclick="()" type="submit" class="btn btn-primary">Pedir</button>
-        <button type="submit" class="btn btn-secondary">Eliminar pedido</button>
+        <button id="boton_form" onclick="carro.whatsappear()" type="submit" class="btn btn-primary">Pedir</button>
+        <button type="reset" onclick="carro.borrarCarro()" class="btn btn-secondary">Eliminar pedido</button>
     </div>     
     
 </form>

@@ -9,7 +9,7 @@ class pedido {
 		}else{
 			this.cart = [];	
 			this.total = 0;
-			this.envio = 0;
+			this.envio = [];
 		}
 		
 		this.event = new Event("cambios_en_carro", {bubbles: false, cancelable: true});
@@ -54,10 +54,17 @@ class pedido {
 		return cantidad
 	}
 
-	getCodificado(){
+	getCodificado(tipo = "simple"){
 		let codigo = ""
+		if(tipo !="simple"){codigo = `#${JSON.stringify(this.envio)}#`}
 		this.cart.forEach(producto => codigo += `(${producto.item.codigo}/${producto.cantidad})`)
 		return codigo
+	}
+
+	whatsappear(){
+		this.envio  = $(`#InfoCliente`).serialize();
+		this.evento()
+		window.open(`https://api.whatsapp.com/send/?phone=5491122100001&text=${this.getCodificado("completo")}&app_absent=0`, '_blank')
 	}
 
 	Existe(item){
@@ -179,3 +186,5 @@ let pedir = leeLocal("carrito")
 
 
 let carro = new pedido(pedir);
+
+$(`#boton_form`).click( event =>  event.preventDefault() );

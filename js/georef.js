@@ -66,8 +66,8 @@ class georef {
 
 	asignar(valor,key,combo){
 		combo.empty()
-        $.each(valor[key], function(i, el){
-		 let texto = mayuscula(el.nombre)
+        $.each(valor[key], (i, el) => {
+		  let texto = mayuscula(el.nombre)
           combo.append( new Option(texto,el.id));
         });
 	}
@@ -102,40 +102,4 @@ let datos = new georef({
 						"c_localidad":"localidad_id",
 					})
 
-
 datos.SetProvincias();
-
-
-
-
-
-
-
-
-
-
-
-/*
-let foo = {	
-	"provincias" : "provincias_id",
-	"localidades":"localidades_id",
-	"calles":"calles_id"}
-
-
-
-
-//setTimeout(() => {  datos.SetLocalidades($('#provincia_id option:selected').text()); }, 500);
-
-
-/*
-
-function agreeting(name) {
-  alert('Hello ' + name);
-}
-
-function processUserInput(callback) {
-  var name = prompt('Please enter your name.');
-  callback(name);
-}
-
-processUserInput(agreeting);*/
