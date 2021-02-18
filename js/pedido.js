@@ -56,15 +56,18 @@ class pedido {
 
 	getCodificado(tipo = "simple"){
 		let codigo = ""
-		if(tipo !="simple"){codigo = `#${JSON.stringify(this.envio)}#`}
+		if(tipo !="simple"){codigo = `${JSON.stringify(this.envio)}&`}
 		this.cart.forEach(producto => codigo += `(${producto.item.codigo}/${producto.cantidad})`)
 		return codigo
 	}
 
 	whatsappear(){
 		this.envio  = $(`#InfoCliente`).serialize();
-		this.evento()
-		window.open(`https://api.whatsapp.com/send/?phone=5491122100001&text=${this.getCodificado("completo")}&app_absent=0`, '_blank')
+		if ( this.getCodificado("completo").indexOf('=&') == -1){
+			this.evento()
+			window.open(`https://api.whatsapp.com/send/?phone=5491122100001&text=${this.getCodificado("completo")}&app_absent=0`, '_blank')
+		}
+		
 	}
 
 	Existe(item){
