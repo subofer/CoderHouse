@@ -1,3 +1,5 @@
+//Load de pagina y herramientas
+
 //Navega a la pagina utilizando el # de la barra
 arrancar()
 $(window).on('hashchange', () => arrancar());

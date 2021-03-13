@@ -90,13 +90,18 @@ class Productos {
                         ${botonUp} ${botonPop}
                       </div>`
     let respuesta=
-              `<div class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
+              `<div class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch cartas_productos">
                 <div id="${elemento.familia}_${elemento.variedad}" class="card mt-3">
                   <img class="card-img-top" src="${elemento.img}" alt="${elemento.nombre}">
+                  
                   <div class="card-body">
                     <h5 class="card-title">${mayuscula(elemento.nombre)}</h5>
+                    <div class="botonera_productos">${inputSpiner}</div>                
+                    <p class="card-text"></p>
                     <p class="card-text">${elemento.texto}</p>
-                    <div class="botonera_productos">${inputSpiner}</div>
+                    <p class="card-text"></p>
+
+
                   </div>
                 </div>
               </div>`
@@ -105,3 +110,4 @@ class Productos {
 }
 
 let prod = new Productos(productos)
+
